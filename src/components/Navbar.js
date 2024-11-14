@@ -23,10 +23,7 @@ const Navbar = () => {
                 Materi Dasar
               </Link>
             </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/materi-lanjutan">
-                Materi Lanjutan
-              </Link>
+            
             </li>
             <li className="nav-item">
               <Link className="nav-link" to="/latihan-soal">
