@@ -3,9 +3,9 @@ import React from 'react';
 const MateriDasar = () => {
   return (
     <div>
-      <h2>Materi Dasar</h2>
-      <p>Berisi konsep dasar seperti bilangan, aljabar dasar, dan sebagainya.</p>
-      {/* Tambahkan konten atau submateri di sini */}
+      <h2>Materi</h2>
+      <p>Berisi Materi-materi kelas 10.</p>
+      
     </div>
   );
 };
