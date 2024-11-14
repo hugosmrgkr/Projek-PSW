@@ -2,7 +2,7 @@ import React from 'react';
 import { HashRouter as Router, Route, Routes, Navigate, useLocation } from 'react-router-dom';
 import Home from './pages/Home';
 import MateriDasar from './pages/MateriDasar';
-import MateriLanjutan from './pages/MateriLanjutan';
+
 import LatihanSoal from './pages/LatihanSoal';
 import Kuis from './pages/Kuis';
 import PembahasanKuis from './pages/PembahasanKuis';
@@ -34,7 +34,7 @@ function App() {
           <Route path="/" element={<Navigate to="/login" />} />
           <Route path="/home" element={<Home />} />
           <Route path="/materi-dasar" element={<MateriDasar />} />
-          <Route path="/materi-lanjutan" element={<MateriLanjutan />} />
+          
           <Route path="/latihan-soal" element={<LatihanSoal />} />
           <Route path="/kuis" element={<Kuis />} />
           <Route path="/pembahasan-kuis" element={<PembahasanKuis />} />
