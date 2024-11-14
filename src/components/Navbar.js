@@ -23,8 +23,6 @@ const Navbar = () => {
                 Materi Dasar
               </Link>
             </li>
-            
-            </li>
             <li className="nav-item">
               <Link className="nav-link" to="/latihan-soal">
                 Latihan Soal
