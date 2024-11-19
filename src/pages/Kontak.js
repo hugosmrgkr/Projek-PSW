@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const Kontak = () => {
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -10,10 +10,9 @@ const Kontak = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Logika untuk mengirim data atau memberi notifikasi sukses
-    console.log('Data terkirim:', formData);
-    alert('Pesan Anda berhasil dikirim!');
-    setFormData({ name: '', email: '', message: '' });
+    console.log("Data terkirim:", formData);
+    alert("Pesan Anda berhasil dikirim!");
+    setFormData({ name: "", email: "", message: "" });
   };
 
   return (
@@ -52,7 +51,9 @@ const Kontak = () => {
             required
           />
         </div>
-        <button type="submit" className="btn btn-primary mt-3">Kirim</button>
+        <button type="submit" className="btn btn-primary mt-3">
+          Kirim
+        </button>
       </form>
     </div>
   );
