@@ -79,7 +79,7 @@ const Navbar = () => {
             <ul className="navbar-nav ms-auto">
               <li className="nav-item">
                 <Link className="nav-link" to="/materi-dasar">
-                  Materi Dasar
+                  Materi
                 </Link>
               </li>
               <li className="nav-item">
