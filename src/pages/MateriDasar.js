@@ -159,7 +159,7 @@ const MateriDasar = () => {
 
   return (
     <div style={styles.container}>
-      <h1 style={styles.title}>Materi Dasar Matematika Kelas 10</h1>
+      <h1 style={styles.title}>Materi Matematika Kelas 10</h1>
       <p style={styles.description}>
         Pelajari berbagai topik dasar matematika dengan penjelasan menarik dan
         mudah dipahami!
