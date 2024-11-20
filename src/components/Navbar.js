@@ -85,16 +85,10 @@ const Navbar = () => {
                   Materi
                 </Link>
                 <ul className="dropdown-menu" aria-labelledby="materiDropdown">
-                  {/* Semester 1 */}
                   <li className="dropdown-header">Semester 1</li>
                   <li>
                     <Link className="dropdown-item" to="/materi/eksponen-logaritma">
                       Eksponen dan Logaritma
-                    </Link>
-                  </li>
-                  <li>
-                    <Link className="dropdown-item" to="/materi/fungsi-kuadrat">
-                      Fungsi Kuadrat
                     </Link>
                   </li>
                   <li>
@@ -103,23 +97,38 @@ const Navbar = () => {
                     </Link>
                   </li>
                   <li>
+                    <Link className="dropdown-item" to="/materi/sistem-persamaan-linear-kuadrat">
+                      Sistem Persamaan Linear dan Kuadrat
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className="dropdown-item" to="/materi/persamaan-kuadrat">
+                      Persamaan Kuadrat
+                    </Link>
+                  </li>
+                  <li>
                     <hr className="dropdown-divider" />
                   </li>
-                  {/* Semester 2 */}
+
                   <li className="dropdown-header">Semester 2</li>
+                  <li>
+                    <Link className="dropdown-item" to="/materi/fungsi-kuadrat">
+                      Fungsi Kuadrat
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className="dropdown-item" to="/materi/transformasi-geometri">
+                      Transformasi Geometri
+                    </Link>
+                  </li>
                   <li>
                     <Link className="dropdown-item" to="/materi/trigonometri">
                       Trigonometri
                     </Link>
                   </li>
                   <li>
-                    <Link className="dropdown-item" to="/materi/sistem-persamaan">
-                      Sistem Persamaan
-                    </Link>
-                  </li>
-                  <li>
-                    <Link className="dropdown-item" to="/materi/statistika">
-                      Statistika
+                    <Link className="dropdown-item" to="/materi/peluang-dasar">
+                      Peluang Dasar
                     </Link>
                   </li>
                 </ul>
