@@ -6,25 +6,22 @@ const Navbar = () => {
     <>
       <style>
         {`
-          /* Styling untuk Navbar */
           .navbar {
-            background-color: #343a40; /* Warna latar gelap */
+            background-color: #343a40;
             padding: 10px 20px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
           }
 
-          /* Styling untuk teks brand */
           .navbar-brand {
-            color: #ffffff; /* Warna putih */
+            color: #ffffff;
             font-weight: bold;
             text-transform: uppercase;
             font-size: 18px;
             text-decoration: none;
           }
 
-          /* Styling untuk navbar link */
           .navbar-nav .nav-link {
-            color: #adb5bd; /* Warna abu-abu muda */
+            color: #adb5bd;
             margin-right: 15px;
             font-size: 16px;
             font-weight: 500;
@@ -32,27 +29,26 @@ const Navbar = () => {
             text-decoration: none;
           }
 
-          /* Hover efek untuk link */
           .navbar-nav .nav-link:hover {
-            color: #ffffff; /* Putih saat hover */
-          }
-
-          /* Styling untuk tombol Login */
-          .navbar-nav .nav-link:last-child {
-            background-color: #00bcd4; /* Warna biru */
             color: #ffffff;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-weight: bold;
-            transition: background-color 0.3s ease;
           }
 
-          /* Hover efek untuk tombol Login */
-          .navbar-nav .nav-link:last-child:hover {
-            background-color: #018c9b; /* Warna biru lebih gelap */
+          .dropdown-menu {
+            background-color: #343a40;
+            border: none;
           }
 
-          /* Responsif: navbar-toggler */
+          .dropdown-item {
+            color: #adb5bd;
+            font-size: 16px;
+            transition: color 0.3s ease;
+          }
+
+          .dropdown-item:hover {
+            color: #ffffff;
+            background-color: #495057;
+          }
+
           .navbar-toggler {
             border: none;
           }
@@ -77,10 +73,56 @@ const Navbar = () => {
           </button>
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav ms-auto">
-              <li className="nav-item">
-                <Link className="nav-link" to="/materi-dasar">
+              <li className="nav-item dropdown">
+                <Link
+                  className="nav-link dropdown-toggle"
+                  to="#"
+                  id="materiDropdown"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
                   Materi
                 </Link>
+                <ul className="dropdown-menu" aria-labelledby="materiDropdown">
+                  {/* Semester 1 */}
+                  <li className="dropdown-header">Semester 1</li>
+                  <li>
+                    <Link className="dropdown-item" to="/materi/eksponen-logaritma">
+                      Eksponen dan Logaritma
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className="dropdown-item" to="/materi/fungsi-kuadrat">
+                      Fungsi Kuadrat
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className="dropdown-item" to="/materi/barisan-deret">
+                      Barisan dan Deret
+                    </Link>
+                  </li>
+                  <li>
+                    <hr className="dropdown-divider" />
+                  </li>
+                  {/* Semester 2 */}
+                  <li className="dropdown-header">Semester 2</li>
+                  <li>
+                    <Link className="dropdown-item" to="/materi/trigonometri">
+                      Trigonometri
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className="dropdown-item" to="/materi/sistem-persamaan">
+                      Sistem Persamaan
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className="dropdown-item" to="/materi/statistika">
+                      Statistika
+                    </Link>
+                  </li>
+                </ul>
               </li>
               <li className="nav-item">
                 <Link className="nav-link" to="/latihan-soal">
