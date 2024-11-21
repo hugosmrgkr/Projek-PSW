@@ -5,30 +5,62 @@ const newsData = [
   {
     id: 1,
     title: "Eksponen dan Logaritma",
-    description: "Pelajari dasar-dasar eksponen dan logaritma.",
+    description: "Pelajari eksponen dan logaritma secara visual dan menarik.",
     image: "/materi1.jpg",
   },
   {
     id: 2,
-    title: "Barisan dan Deret Geometri",
-    description: "Eksplorasi konsep barisan dan deret untuk pemahaman mendalam.",
+    title: "Barisan dan Deret",
+    description: "Pelajari barisan dan deret secara visual dan menarik.",
     image: "/materi2.jpeg",
   },
   {
     id: 3,
+    title: "Sistem Persamaan Linear dan Kuadrat",
+    description: "Pelajari sistem persamaan linear dan kuadrat secara visual dan menarik.",
+    image: "/materi3.jpeg",
+  },
+  {
+    id: 4,
+    title: "Persamaan Kuadrat",
+    description: "Pelajari persamaan kuadrat secara visual dan menarik. ",
+    image: "/materi4.jpeg",
+  },
+  {
+    id: 5,
     title: "Fungsi Kuadrat",
     description: "Pelajari konsep fungsi kuadrat secara visual dan menarik.",
-    image: "/materi3.jpeg",
+    image: "/materi5.jpg",
+  },
+  {
+    id: 6,
+    title: "Transformasi Geometri",
+    description: "Pelajari transformasi geometri  secara visual dan menarik.",
+    image: "/materi6.jpeg",
+  },
+  {
+    id: 7,
+    title: "Trigonometri",
+    description: "Pelajari trigonometri secara visual dan menarik.",
+    image: "/materi7.jpeg",
+  },
+  {
+    id: 8,
+    title: "Peluang dasar",
+    description: "Pelajari peluang dasar secara visual dan menarik.",
+    image: "/materi8.jpeg",
   },
 ];
 
-
-const NewsCard = ({ title, description, image }) => (
+const NewsCard = ({ id, title, description, image }) => (
   <div className="card">
     <img src={image} alt={title} className="card-img" />
     <div className="card-content">
       <h3 className="card-title">{title}</h3>
       <p className="card-description">{description}</p>
+      <Link to={`/materi/${id}`} className="btn-primary">
+        Pelajari Selengkapnya
+      </Link>
     </div>
   </div>
 );
@@ -36,7 +68,6 @@ const NewsCard = ({ title, description, image }) => (
 const Home = () => {
   return (
     <div>
-      {/* Gaya CSS */}
       <style>
         {`
           .text-center {
@@ -60,7 +91,6 @@ const Home = () => {
             background-color: #0056b3;
           }
 
-          /* Hero Section */
           .hero-section {
             background: url("/background.jpg") no-repeat center center/cover;
             height: 70vh;
@@ -83,7 +113,6 @@ const Home = () => {
             margin-top: 10px;
           }
 
-          /* Materi Section */
           .materi-section {
             padding: 50px 20px;
             background: #f9f9f9;
@@ -139,30 +168,24 @@ const Home = () => {
         `}
       </style>
 
-      {/* Hero Section */}
       <div className="hero-section">
         <h1>Selamat Datang di Matematika Kelas 10</h1>
-        <p>Pelajari materi matematika dari dasar hingga lanjutan.</p>
+        <p>Pelajari materi matematika dari dasar.</p>
       </div>
 
-      {/* Materi Section */}
       <section className="materi-section">
         <h2 className="materi-title">Materi Yang Dipelajari</h2>
         <div className="materi-cards-container">
           {newsData.map((news) => (
             <NewsCard
               key={news.id}
+              id={news.id}
               title={news.title}
               description={news.description}
               image={news.image}
             />
           ))}
         </div>
-
-        {/* Link "Mulai Belajar"  */}
-        <Link to="/materi-dasar" className="btn-primary">
-          Mulai Belajar
-        </Link>
       </section>
     </div>
   );
