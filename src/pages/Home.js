@@ -3,54 +3,55 @@ import { Link } from "react-router-dom";
 
 const newsData = [
   {
-    id: 1,
+    id: "eksponen-logaritma", // Ganti ID dengan nama rute
     title: "Eksponen dan Logaritma",
     description: "Pelajari eksponen dan logaritma secara visual dan menarik.",
     image: "/materi1.jpg",
   },
   {
-    id: 2,
+    id: "barisan-deret",
     title: "Barisan dan Deret",
     description: "Pelajari barisan dan deret secara visual dan menarik.",
     image: "/materi2.jpeg",
   },
   {
-    id: 3,
+    id: "sistem-persamaan",
     title: "Sistem Persamaan Linear dan Kuadrat",
     description: "Pelajari sistem persamaan linear dan kuadrat secara visual dan menarik.",
     image: "/materi3.jpeg",
   },
   {
-    id: 4,
+    id: "persamaan-kuadrat",
     title: "Persamaan Kuadrat",
-    description: "Pelajari persamaan kuadrat secara visual dan menarik. ",
+    description: "Pelajari persamaan kuadrat secara visual dan menarik.",
     image: "/materi4.jpeg",
   },
   {
-    id: 5,
+    id: "fungsi-kuadrat",
     title: "Fungsi Kuadrat",
     description: "Pelajari konsep fungsi kuadrat secara visual dan menarik.",
     image: "/materi5.jpg",
   },
   {
-    id: 6,
+    id: "transformasi-geometri",
     title: "Transformasi Geometri",
-    description: "Pelajari transformasi geometri  secara visual dan menarik.",
+    description: "Pelajari transformasi geometri secara visual dan menarik.",
     image: "/materi6.jpeg",
   },
   {
-    id: 7,
+    id: "trigonometri",
     title: "Trigonometri",
     description: "Pelajari trigonometri secara visual dan menarik.",
     image: "/materi7.jpeg",
   },
   {
-    id: 8,
-    title: "Peluang dasar",
+    id: "peluang-dasar",
+    title: "Peluang Dasar",
     description: "Pelajari peluang dasar secara visual dan menarik.",
     image: "/materi8.jpeg",
   },
 ];
+
 
 const NewsCard = ({ id, title, description, image }) => (
   <div className="card">

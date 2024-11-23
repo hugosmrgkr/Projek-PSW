@@ -40,6 +40,7 @@ function App() {
       <Layout>
         <Routes>
           <Route path="/" element={<Navigate to="/login" />} />
+
           <Route path="/home" element={<Home />} />
           <Route path="/materi-dasar" element={<MateriDasar />} />
 
