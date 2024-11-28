@@ -53,7 +53,6 @@ function App() {
           <Route path="/materi/peluang-dasar" element={<PeluangDasar />} />
           <Route path="/materi/persamaan-kuadrat" element={<PersamaanKuadrat />} />
 
-          <Route path="/latihan-soal" element={<LatihanSoal />} />
           <Route path="/kuis" element={<Kuis />} />
           <Route path="/pembahasan-kuis" element={<PembahasanKuis />} />
           <Route path="/statistik-belajar" element={<StatistikBelajar />} />

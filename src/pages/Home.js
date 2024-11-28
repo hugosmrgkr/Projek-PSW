@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const newsData = [
   {
-    id: "eksponen-logaritma", // Ganti ID dengan nama rute
+    id: "eksponen-logaritma", 
     title: "Eksponen dan Logaritma",
     description: "Pelajari eksponen dan logaritma secara visual dan menarik.",
     image: "/materi1.jpg",
