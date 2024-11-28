@@ -1,6 +1,16 @@
 import React from "react";
 
 const EksponenLogaritma = () => {
+  // Fungsi untuk menghitung eksponen
+  const hitungEksponen = (basis, pangkat) => Math.pow(basis, pangkat);
+
+  // Fungsi untuk menghitung logaritma
+  const hitungLogaritma = (angka, basis) => Math.log(angka) / Math.log(basis);
+
+  // Contoh perhitungan
+  const contohEksponen = hitungEksponen(2, 3); // 2^3 = 8
+  const contohLogaritma = hitungLogaritma(8, 2); // log2(8) = 3
+
   return (
     <div style={styles.container}>
       <header style={styles.header}>
@@ -8,32 +18,35 @@ const EksponenLogaritma = () => {
       </header>
 
       <section style={styles.section}>
-      <p style={styles.text}>
-  Dalam matematika, <strong>Eksponen</strong> dan <strong>Logaritma</strong> adalah dua konsep yang sangat penting. 
-  Keduanya digunakan dalam berbagai bidang seperti fisika, keuangan, dan ilmu komputer. 
-  <br />
-  <br />
-  <strong>Eksponen</strong> mengacu pada operasi matematika yang menunjukkan berapa kali suatu bilangan (basis) dikalikan dengan dirinya sendiri. 
-  Sebagai contoh, \( 2^3 = 8 \), artinya 2 dikalikan dengan dirinya sendiri sebanyak 3 kali.
-  <br />
-  <br />
-  <strong>Logaritma</strong>, di sisi lain, adalah operasi yang membalikkan operasi eksponen. 
-  Dengan kata lain, logaritma memberikan kita informasi tentang berapa banyak kali suatu bilangan (basis) harus dipangkatkan untuk mendapatkan angka tertentu. 
-  Sebagai contoh, \( \log_2(8) = 3 \), artinya kita harus mengalikan 2 sebanyak 3 kali untuk mendapatkan 8.
-</p>
+        <p style={styles.text}>
+          Dalam matematika, <strong>Eksponen</strong> dan <strong>Logaritma</strong> adalah dua konsep yang sangat penting.
+          Keduanya digunakan dalam berbagai bidang seperti fisika, keuangan, dan ilmu komputer.
+          <br />
+          <br />
+          <strong>Eksponen</strong> mengacu pada operasi matematika yang menunjukkan berapa kali suatu bilangan (basis) dikalikan dengan dirinya sendiri.
+          Sebagai contoh, 2³ = 8, artinya 2 dikalikan dengan dirinya sendiri sebanyak 3 kali.
+          <br />
+          <br />
+          <strong>Logaritma</strong>, di sisi lain, adalah operasi yang membalikkan operasi eksponen.
+          Dengan kata lain, logaritma memberikan kita informasi tentang berapa banyak kali suatu bilangan (basis) harus dipangkatkan untuk mendapatkan angka tertentu.
+          Sebagai contoh, log₂(8) = 3, artinya kita harus mengalikan 2 sebanyak 3 kali untuk mendapatkan 8.
+        </p>
 
         <div style={styles.card}>
           <h2 style={styles.subtitle}>Eksponen</h2>
           <p style={styles.text}>
-            Eksponen menunjukkan berapa kali suatu bilangan (basis) dikalikan dengan dirinya sendiri. 
-            Contoh: \( 2^3 = 2 \times 2 \times 2 = 8 \).
+            Eksponen menunjukkan berapa kali suatu bilangan (basis) dikalikan dengan dirinya sendiri.
+            <br />
+            Contoh: 2³ = 2 × 2 × 2 = {contohEksponen}.
           </p>
         </div>
+
         <div style={styles.card}>
           <h2 style={styles.subtitle}>Logaritma</h2>
           <p style={styles.text}>
-            Logaritma adalah operasi yang membalikkan eksponen. Contoh: 
-            Jika \( 2^3 = 8 \), maka \( \log_2(8) = 3 \).
+            Logaritma adalah operasi yang membalikkan eksponen.
+            <br />
+            Contoh: Jika 2³ = 8, maka log₂(8) = {contohLogaritma}.
           </p>
         </div>
       </section>
@@ -108,9 +121,6 @@ const styles = {
     marginBottom: "15px",
     boxShadow: "0 2px 8px rgba(0, 0, 0, 0.1)",
     transition: "transform 0.3s ease-in-out",
-  },
-  cardHover: {
-    transform: "scale(1.05)",
   },
   examples: {
     textAlign: "center",
