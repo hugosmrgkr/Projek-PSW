@@ -1,11 +1,38 @@
-import React from "react";
+import React, { useState } from "react";
 
 const EksponenLogaritma = () => {
+  const [selectedQuestion, setSelectedQuestion] = useState(null);
+
   // Fungsi untuk menghitung eksponen
   const hitungEksponen = (basis, pangkat) => Math.pow(basis, pangkat);
 
   // Fungsi untuk menghitung logaritma
   const hitungLogaritma = (angka, basis) => Math.log(angka) / Math.log(basis);
+
+  // Toggle untuk menampilkan/menghilangkan pemahaman soal
+  const toggleExplanation = (index) => {
+    setSelectedQuestion(selectedQuestion === index ? null : index);
+  };
+
+  // Data soal interaktif
+  const questions = [
+    {
+      question: "Hitung hasil dari 3⁴ (3 pangkat 4).",
+      explanation: "3⁴ = 3 × 3 × 3 × 3 = 81. Jadi, jawabannya adalah 81.",
+    },
+    {
+      question: "Tentukan nilai log₅(125) (logaritma basis 5 dari 125).",
+      explanation: "log₅(125) = 3 karena 5³ = 125. Jadi, jawabannya adalah 3.",
+    },
+    {
+      question: "Selesaikan persamaan eksponensial: 2ˣ = 32.",
+      explanation: "2ˣ = 32 berarti x = 5 karena 2⁵ = 32. Jadi, x = 5.",
+    },
+    {
+      question: "Selesaikan persamaan logaritma: log₃(x) = 4.",
+      explanation: "log₃(x) = 4 berarti x = 3⁴ = 81. Jadi, x = 81.",
+    },
+  ];
 
   // Contoh perhitungan
   const contohEksponen = hitungEksponen(2, 3); // 2^3 = 8
@@ -31,7 +58,24 @@ const EksponenLogaritma = () => {
           Dengan kata lain, logaritma memberikan kita informasi tentang berapa banyak kali suatu bilangan (basis) harus dipangkatkan untuk mendapatkan angka tertentu.
           Sebagai contoh, log₂(8) = 3, artinya kita harus mengalikan 2 sebanyak 3 kali untuk mendapatkan 8.
         </p>
+      </section>
 
+      <section style={styles.section}>
+        <h2 style={styles.subtitle}>Video Pembelajaran</h2>
+        <div style={styles.videoContainer}>
+          <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/dQw4w9WgXcQ" // Replace with your desired YouTube video URL
+            title="Eksponen dan Logaritma"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          ></iframe>
+        </div>
+      </section>
+
+      <section style={styles.examples}>
         <div style={styles.card}>
           <h2 style={styles.subtitle}>Eksponen</h2>
           <p style={styles.text}>
@@ -51,30 +95,39 @@ const EksponenLogaritma = () => {
         </div>
       </section>
 
-      <section style={styles.examples}>
+      <section style={styles.section}>
         <h2 style={styles.subtitle}>Contoh Soal</h2>
-        <ul style={styles.list}>
-          <li>Menjumlahkan dan mengalikan bilangan berpangkat.</li>
-          <li>Menyelesaikan persamaan logaritma sederhana.</li>
-        </ul>
-        <img
-          src="https://via.placeholder.com/600x300?text=Grafik+Eksponen+dan+Logaritma"
-          alt="Grafik Eksponen dan Logaritma"
-          style={styles.image}
-        />
-        <video style={styles.video} controls>
-          <source
-            src="https://samplelib.com/lib/preview/mp4/sample-5s.mp4"
-            type="video/mp4"
+        <div style={styles.examplesList}>
+          {questions.map((item, index) => (
+            <div key={index} style={styles.card}>
+              <p style={styles.text}>{item.question}</p>
+              <button
+                style={styles.button}
+                onClick={() => toggleExplanation(index)}
+              >
+                {selectedQuestion === index ? "Sembunyikan" : "Tampilkan"} Pemahaman
+              </button>
+              {selectedQuestion === index && (
+                <p style={styles.explanation}>{item.explanation}</p>
+              )}
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section style={styles.section}>
+        <h2 style={styles.subtitle}>Gambar Ilustrasi</h2>
+        <div style={styles.imageContainer}>
+          <img
+            src="https://example.com/ilustrasi.png" // Replace with your desired image URL
+            alt="Ilustrasi Eksponen dan Logaritma"
+            style={styles.image}
           />
-          Browser Anda tidak mendukung video.
-        </video>
+        </div>
       </section>
 
       <footer style={styles.footer}>
-        <p style={styles.footerText}>
-          © 2024 Materi Matematika Kelas 10. Semua hak dilindungi.
-        </p>
+        <p style={styles.footerText}>© 2024 Materi Matematika Kelas 10. Semua hak dilindungi.</p>
       </footer>
     </div>
   );
@@ -124,26 +177,28 @@ const styles = {
   },
   examples: {
     textAlign: "center",
-    marginTop: "20px",
   },
-  list: {
-    textAlign: "left",
-    margin: "0 auto 20px",
-    maxWidth: "500px",
-    listStyle: "circle",
-    padding: "0 20px",
+  examplesList: {
+    display: "flex",
+    flexDirection: "column",
+    gap: "15px",
   },
-  image: {
-    width: "100%",
-    maxWidth: "600px",
-    borderRadius: "10px",
-    marginBottom: "20px",
+  button: {
+    background: "#007699",
+    color: "#fff",
+    border: "none",
+    padding: "10px 15px",
+    borderRadius: "5px",
+    cursor: "pointer",
+    transition: "background 0.3s ease",
   },
-  video: {
-    width: "100%",
-    maxWidth: "600px",
-    borderRadius: "10px",
-    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
+  explanation: {
+    marginTop: "10px",
+    background: "#fff",
+    border: "1px solid #007699",
+    padding: "10px",
+    borderRadius: "5px",
+    boxShadow: "0 2px 8px rgba(0, 0, 0, 0.1)",
   },
   footer: {
     marginTop: "20px",
@@ -155,6 +210,19 @@ const styles = {
   footerText: {
     fontSize: "0.9em",
     color: "#003f63",
+  },
+  videoContainer: {
+    textAlign: "center",
+    marginBottom: "20px",
+  },
+  imageContainer: {
+    textAlign: "center",
+    marginTop: "20px",
+  },
+  image: {
+    width: "100%",
+    maxWidth: "600px",
+    borderRadius: "10px",
   },
 };
 
