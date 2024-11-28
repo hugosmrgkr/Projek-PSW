@@ -134,11 +134,6 @@ const Navbar = () => {
                 </ul>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/latihan-soal">
-                  Latihan Soal
-                </Link>
-              </li>
-              <li className="nav-item">
                 <Link className="nav-link" to="/kuis">
                   Kuis
                 </Link>
