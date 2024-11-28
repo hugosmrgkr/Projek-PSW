@@ -2,9 +2,7 @@ import React from "react";
 import { HashRouter as Router, Route, Routes, Navigate, useLocation } from "react-router-dom";
 import Home from "./pages/Home";
 import MateriDasar from "./pages/MateriDasar";
-import LatihanSoal from "./pages/LatihanSoal";
 import Kuis from "./pages/Kuis";
-import PembahasanKuis from "./pages/PembahasanKuis";
 import StatistikBelajar from "./pages/StatistikBelajar";
 import Kontak from "./pages/Kontak";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -53,9 +51,7 @@ function App() {
           <Route path="/materi/peluang-dasar" element={<PeluangDasar />} />
           <Route path="/materi/persamaan-kuadrat" element={<PersamaanKuadrat />} />
 
-          <Route path="/latihan-soal" element={<LatihanSoal />} />
           <Route path="/kuis" element={<Kuis />} />
-          <Route path="/pembahasan-kuis" element={<PembahasanKuis />} />
           <Route path="/statistik-belajar" element={<StatistikBelajar />} />
           <Route path="/kontak" element={<Kontak />} />
 
