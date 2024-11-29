@@ -9,6 +9,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import Login from "./pages/Login";
 import Navbar from "./components/Navbar";
+import { ScoreProvider } from "./components/ScoreContext"; // Impor ScoreProvider
 import "./styles/App.css";
 
 import EksponenLogaritma from "./pages/EksponenLogaritma";
@@ -34,31 +35,33 @@ function Layout({ children }) {
 
 function App() {
   return (
-    <Router>
-      <Layout>
-        <Routes>
-          <Route path="/" element={<Navigate to="/login" />} />
+    <ScoreProvider>
+      <Router>
+        <Layout>
+          <Routes>
+            <Route path="/" element={<Navigate to="/login" />} />
 
-          <Route path="/home" element={<Home />} />
-          <Route path="/materi-dasar" element={<MateriDasar />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/materi-dasar" element={<MateriDasar />} />
 
-          <Route path="/materi/eksponen-logaritma" element={<EksponenLogaritma />} />
-          <Route path="/materi/fungsi-kuadrat" element={<FungsiKuadrat />} />
-          <Route path="/materi/barisan-deret" element={<BarisanDeret />} />
-          <Route path="/materi/trigonometri" element={<Trigonometri />} />
-          <Route path="/materi/sistem-persamaan" element={<SistemPersamaan />} />
-          <Route path="/materi/transformasi-geometri" element={<TransformasiGeometri />} />
-          <Route path="/materi/peluang-dasar" element={<PeluangDasar />} />
-          <Route path="/materi/persamaan-kuadrat" element={<PersamaanKuadrat />} />
+            <Route path="/materi/eksponen-logaritma" element={<EksponenLogaritma />} />
+            <Route path="/materi/fungsi-kuadrat" element={<FungsiKuadrat />} />
+            <Route path="/materi/barisan-deret" element={<BarisanDeret />} />
+            <Route path="/materi/trigonometri" element={<Trigonometri />} />
+            <Route path="/materi/sistem-persamaan" element={<SistemPersamaan />} />
+            <Route path="/materi/transformasi-geometri" element={<TransformasiGeometri />} />
+            <Route path="/materi/peluang-dasar" element={<PeluangDasar />} />
+            <Route path="/materi/persamaan-kuadrat" element={<PersamaanKuadrat />} />
 
-          <Route path="/kuis" element={<Kuis />} />
-          <Route path="/statistik-belajar" element={<StatistikBelajar />} />
-          <Route path="/kontak" element={<Kontak />} />
+            <Route path="/kuis" element={<Kuis />} />
+            <Route path="/statistik-belajar" element={<StatistikBelajar />} />
+            <Route path="/kontak" element={<Kontak />} />
 
-          <Route path="/login" element={<Login />} />
-        </Routes>
-      </Layout>
-    </Router>
+            <Route path="/login" element={<Login />} />
+          </Routes>
+        </Layout>
+      </Router>
+    </ScoreProvider>
   );
 }
 

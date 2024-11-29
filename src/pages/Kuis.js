@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import { useScore } from "../components/ScoreContext"; // Gunakan ScoreContext
 import "../styles/kuis.css";
 
 const Kuis = () => {
+  const { setScore: updateGlobalScore } = useScore(); // Untuk memperbarui skor global
   const [questions] = useState([
     {
       text: "1. Jika f(x) = x² + 2x - 3, berapakah nilai f(2)?",
@@ -35,7 +37,13 @@ const Kuis = () => {
     },
     {
       text: "7. Persamaan yang menyatakan hubungan antara waktu dengan suhu logam yang dipanaskan adalah .....",
-      options: ["A. F(x) = 3 log x", "B. y = 3 log x", "C. F(x) = 2 log 3", "D. y = 2 log 3", "E. y = 2 log x"],
+      options: [
+        "A. F(x) = 3 log x",
+        "B. y = 3 log x",
+        "C. F(x) = 2 log 3",
+        "D. y = 2 log 3",
+        "E. y = 2 log x",
+      ],
       correctAnswer: "B. y = 3 log x",
     },
     {
@@ -56,13 +64,7 @@ const Kuis = () => {
     },
     {
       text: "10. Jika diketahui fungsi f(x) = x – 11, maka berapakah nilai f(x²) – 3f(x) – (f(x))²?",
-      options: [
-        "A. 19x – 99",
-        "B. 19x – 165",
-        "C. -25x – 90",
-        "D. -25x + 143",
-        "E. -3x + 11",
-      ],
+      options: ["A. 19x – 99", "B. 19x – 165", "C. -25x – 90", "D. -25x + 143", "E. -3x + 11"],
       correctAnswer: "A. 19x – 99",
     },
     {
@@ -105,74 +107,83 @@ const Kuis = () => {
     },
     {
       text: "15. Diketahui f(x) = 3 – x. Nilai mutlak dari f(x) adalah .....",
-      options: [
-        "A. |3 – x|",
-        "B. |3| – |x|",
-        "C. (3) – (x)",
-        "D. (3 – x)",
-        "E. 3 – x",
-      ],
+      options: ["A. |3 – x|", "B. |3| – |x|", "C. (3) – (x)", "D. (3 – x)", "E. 3 – x"],
       correctAnswer: "A. |3 – x|",
     },
   ]);
 
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [score, setScore] = useState(0);
+  const [localScore, setLocalScore] = useState(0);
   const [answered, setAnswered] = useState(false);
   const [selectedAnswer, setSelectedAnswer] = useState("");
 
   const handleAnswer = (answer, correctAnswer) => {
-    setSelectedAnswer(answer); 
+    setSelectedAnswer(answer);
     if (answer === correctAnswer) {
-      setScore(score + 1);
+      setLocalScore((prevScore) => prevScore + 1);
     }
     setAnswered(true);
   };
 
   const nextQuestion = () => {
     setAnswered(false);
-    setSelectedAnswer(""); 
-    setCurrentQuestion(currentQuestion + 1);
+    setSelectedAnswer("");
+    setCurrentQuestion((prevQuestion) => prevQuestion + 1);
+  };
+
+  const finishQuiz = () => {
+    updateGlobalScore(localScore); // Simpan skor ke konteks global
   };
 
   return (
     <div className="kuis-container">
-      <h2>Kuis!</h2>
-      <div className="question-card">
-        <div className="question-text">{questions[currentQuestion].text}</div>
-        <div className="options">
-          {questions[currentQuestion].options.map((option, index) => {
-            let backgroundColor = "";
-            if (answered) {
-              if (option === questions[currentQuestion].correctAnswer) {
-                backgroundColor = "green";
-              } else if (option === selectedAnswer) {
-                backgroundColor = "red";
-              }
-            }
-            return (
-              <button
-                key={index}
-                className="option-button"
-                onClick={() =>
-                  handleAnswer(option, questions[currentQuestion].correctAnswer)
+      <h2>Kuis Matematika</h2>
+      {currentQuestion < questions.length ? (
+        <div className="question-card">
+          <div className="question-text">{questions[currentQuestion].text}</div>
+          <div className="options">
+            {questions[currentQuestion].options.map((option, index) => {
+              let backgroundColor = "";
+              if (answered) {
+                if (option === questions[currentQuestion].correctAnswer) {
+                  backgroundColor = "green";
+                } else if (option === selectedAnswer) {
+                  backgroundColor = "red";
                 }
-                disabled={answered}
-                style={{ backgroundColor }}
-              >
-                {option}
-              </button>
-            );
-          })}
+              }
+              return (
+                <button
+                  key={index}
+                  className="option-button"
+                  onClick={() => handleAnswer(option, questions[currentQuestion].correctAnswer)}
+                  disabled={answered}
+                  style={{ backgroundColor }}
+                >
+                  {option}
+                </button>
+              );
+            })}
+          </div>
+          {answered && (
+            <button
+              className="next-button"
+              onClick={currentQuestion < questions.length - 1 ? nextQuestion : finishQuiz}
+            >
+              {currentQuestion < questions.length - 1 ? "Next" : "Finish"}
+            </button>
+          )}
         </div>
-      </div>
-      {answered && currentQuestion < questions.length - 1 && (
-        <button className="next-button" onClick={nextQuestion}>
-          Next
-        </button>
-      )}
-      {currentQuestion === questions.length - 1 && answered && (
-        <p>Skor Anda: {score}/{questions.length}</p>
+      ) : (
+        <div className="quiz-end">
+          <h3>Kuis Selesai!</h3>
+          <p>
+            Skor Anda:{" "}
+            <strong>
+              {localScore}/{questions.length}
+            </strong>
+          </p>
+          <p>Terima kasih telah mengikuti kuis ini!</p>
+        </div>
       )}
     </div>
   );
