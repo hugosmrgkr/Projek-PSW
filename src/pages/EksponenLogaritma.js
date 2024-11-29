@@ -115,18 +115,7 @@ const EksponenLogaritma = () => {
         </div>
       </section>
 
-      <section style={styles.section}>
-        <h2 style={styles.subtitle}>Gambar Ilustrasi</h2>
-        <div style={styles.imageContainer}>
-          <img
-            src="https://example.com/ilustrasi.png" // Replace with your desired image URL
-            alt="Ilustrasi Eksponen dan Logaritma"
-            style={styles.image}
-          />
-        </div>
-      </section>
-
-      <footer style={styles.footer}>
+    <footer style={styles.footer}>
         <p style={styles.footerText}>© 2024 Materi Matematika Kelas 10. Semua hak dilindungi.</p>
       </footer>
     </div>
