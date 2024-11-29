@@ -66,7 +66,7 @@ const EksponenLogaritma = () => {
           <iframe
             width="560"
             height="315"
-            src="https://www.youtube.com/embed/dQw4w9WgXcQ" // Replace with your desired YouTube video URL
+            src="https://www.youtube.com/embed/lScgN1qnirY" 
             title="Eksponen dan Logaritma"
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -119,7 +119,7 @@ const EksponenLogaritma = () => {
         <h2 style={styles.subtitle}>Gambar Ilustrasi</h2>
         <div style={styles.imageContainer}>
           <img
-            src="https://example.com/ilustrasi.png" // Replace with your desired image URL
+            src="Eksponen.jpeg" // Replace with your desired image URL
             alt="Ilustrasi Eksponen dan Logaritma"
             style={styles.image}
           />
