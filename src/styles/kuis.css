@@ -1,0 +1,64 @@
+.kuis-container {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #002b7f;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .question-card {
+    background-color: white;
+    color: #002b7f;
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 10px;
+    width: 80%;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .question-text {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  
+  .option-button {
+    padding: 10px 20px;
+    background-color: #f1f1f1;
+    border: none;
+    border-radius: 5px;
+    color: #002b7f;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .option-button:hover {
+    background-color: #e0e0e0;
+  }
+  
+  .option-button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+  }
+  
+  .next-button {
+    padding: 10px 20px;
+    background-color: #002b7f;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .next-button:hover {
+    background-color: #001a5f;
+  }
+  

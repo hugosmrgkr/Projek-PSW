@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import QuestionCard from "../components/QuestionCard";
+import "../styles/kuis.css";
 
 const Kuis = () => {
   const [questions] = useState([
@@ -20,7 +20,7 @@ const Kuis = () => {
     },
     {
       text: "4. Himpunan penyelesaian dari 2𝑥² − 3𝑥 = 16 adalah ....",
-      options: ["{A. 2,4}", "{B. 1,2}", "{C. 4,-2}", "{D. -1,2}", "{E. -1,4}"],
+      options: ["A. {2,4}", "B. {1,2}", "C. {4,-2}", "D. {-1,2}", "E. {-1,4}"],
       correctAnswer: "E. {-1,4}",
     },
     {
@@ -115,19 +115,65 @@ const Kuis = () => {
       correctAnswer: "A. |3 – x|",
     },
   ]);
+
+  const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
+  const [answered, setAnswered] = useState(false);
+  const [selectedAnswer, setSelectedAnswer] = useState("");
 
   const handleAnswer = (answer, correctAnswer) => {
-    if (answer === correctAnswer) setScore(score + 1);
+    setSelectedAnswer(answer); 
+    if (answer === correctAnswer) {
+      setScore(score + 1);
+    }
+    setAnswered(true);
+  };
+
+  const nextQuestion = () => {
+    setAnswered(false);
+    setSelectedAnswer(""); 
+    setCurrentQuestion(currentQuestion + 1);
   };
 
   return (
-    <div>
+    <div className="kuis-container">
       <h2>Kuis!</h2>
-      {questions.map((question, index) => (
-        <QuestionCard key={index} question={question} handleAnswer={handleAnswer} />
-      ))}
-      <p>Skor: {score}</p>
+      <div className="question-card">
+        <div className="question-text">{questions[currentQuestion].text}</div>
+        <div className="options">
+          {questions[currentQuestion].options.map((option, index) => {
+            let backgroundColor = "";
+            if (answered) {
+              if (option === questions[currentQuestion].correctAnswer) {
+                backgroundColor = "green";
+              } else if (option === selectedAnswer) {
+                backgroundColor = "red";
+              }
+            }
+            return (
+              <button
+                key={index}
+                className="option-button"
+                onClick={() =>
+                  handleAnswer(option, questions[currentQuestion].correctAnswer)
+                }
+                disabled={answered}
+                style={{ backgroundColor }}
+              >
+                {option}
+              </button>
+            );
+          })}
+        </div>
+      </div>
+      {answered && currentQuestion < questions.length - 1 && (
+        <button className="next-button" onClick={nextQuestion}>
+          Next
+        </button>
+      )}
+      {currentQuestion === questions.length - 1 && answered && (
+        <p>Skor Anda: {score}/{questions.length}</p>
+      )}
     </div>
   );
 };
