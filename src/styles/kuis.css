@@ -61,4 +61,46 @@
   .next-button:hover {
     background-color: #001a5f;
   }
+  .start-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  .start-button:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+  }
+  
+  .start-button:active {
+    background-color: #388e3c;
+    transform: scale(1);
+  }
+  
+  .start-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+  }
+  
+  .start-screen p {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .start-button {
+    margin-top: 20px;
+  }
+  
   

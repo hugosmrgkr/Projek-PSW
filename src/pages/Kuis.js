@@ -1,39 +1,45 @@
 import React, { useState } from "react";
-import { useScore } from "../components/ScoreContext"; // Gunakan ScoreContext
+import { useScore } from "../components/ScoreContext";
 import "../styles/kuis.css";
 
 const Kuis = () => {
-  const { setScore: updateGlobalScore } = useScore(); // Untuk memperbarui skor global
+  const { setScore: updateGlobalScore } = useScore();
   const [questions] = useState([
     {
       text: "1. Jika f(x) = x² + 2x - 3, berapakah nilai f(2)?",
       options: ["A. 5", "B. 3", "C. 1", "D. -1"],
       correctAnswer: "B. 3",
+      explanation: "Substitusi x = 2 ke fungsi: f(2) = 2² + 2(2) - 3 = 4 + 4 - 3 = 5.",
     },
     {
       text: "2. Bentuk sederhana dari (24𝑎⁻⁷𝑏⁻²𝑐) / (6𝑎⁻²𝑏⁻³𝑐⁻⁶) adalah .....",
       options: ["A. 7bc/a⁵", "B. 5bc²/a⁵", "C. 4bc⁷/a⁵", "D. 4bc⁵/a⁵", "E. 5bc⁷/a⁵"],
       correctAnswer: "C. 4bc⁷/a⁵",
+      explanation: "Sederhanakan pangkat masing-masing variabel: hasil akhirnya adalah 4bc⁷/a⁵.",
     },
     {
-      text: "3. Pada pukul 08.00 pagi massa suatu zat radioaktif adalah 0,2 kg. Apabila diketahui laju peluruhan zat radioaktif tersebut 10% setiap jam, sisa zat radioaktif itu pada pukul 14.00 siang dalam gram adalah .....",
-      options: ["A. 100 gram", "B. 103 gram", "C. 107 gram", "D. 106 gram", "E. 110 gram"],
-      correctAnswer: "D. 106 gram",
+      text: "3. Sebuah kotak berisi 10 bola bernomor 1 hingga 10. Jika sebuah bola diambil secara acak, peluang bola yang terambil memiliki nomor ganjil adalah ....",
+      options: ["A. 1/2", "B. 3/5", "C. 2/5", "D. 4/5", "E. 1/3"],
+      correctAnswer: "A. 1/2",
+      explanation: "Ada 5 bola ganjil dari total 10 bola, sehingga peluangnya adalah 5/10 = 1/2.",
     },
     {
       text: "4. Himpunan penyelesaian dari 2𝑥² − 3𝑥 = 16 adalah ....",
       options: ["A. {2,4}", "B. {1,2}", "C. {4,-2}", "D. {-1,2}", "E. {-1,4}"],
       correctAnswer: "E. {-1,4}",
+      explanation: "Persamaan kuadrat dipecahkan dengan faktorisasi atau rumus kuadrat: {x | x = -1, x = 4}.",
     },
     {
       text: "5. Himpunan penyelesaian dari 25𝑥+2 = 53𝑥−4 adalah ....",
       options: ["A. 7", "B. 9", "C. 8", "D. 6", "E. 3"],
       correctAnswer: "C. 8",
+      explanation: "Logaritmakan kedua sisi, lalu selesaikan persamaan: x = 8.",
     },
     {
       text: "6. Nilai logaritma dari 8log32 adalah ....",
       options: ["A. 5/4", "B. 5/3", "C. 4/5", "D. 5/2", "E. 2/4"],
       correctAnswer: "B. 5/3",
+      explanation: "Gunakan properti logaritma: a^log_b(c) = c^(log_b(a)). Jawaban akhirnya adalah 5/3.",
     },
     {
       text: "7. Persamaan yang menyatakan hubungan antara waktu dengan suhu logam yang dipanaskan adalah .....",
@@ -45,11 +51,13 @@ const Kuis = () => {
         "E. y = 2 log x",
       ],
       correctAnswer: "B. y = 3 log x",
+      explanation: "Hubungan logaritma sering digunakan untuk menjelaskan fenomena fisik seperti suhu.",
     },
     {
       text: "8. Diketahui suatu barisan aritmetika, suku ke-3 = 9, suku ke-6 = 18. Rumus suku ke-n adalah ....",
       options: ["A. 3n", "B. 4n", "C. 9n", "D. 10n", "E. 6n"],
       correctAnswer: "A. 3n",
+      explanation: "Selisih antar suku adalah 3, sehingga rumusnya adalah Un = 3n.",
     },
     {
       text: "9. Diketahui cos α derajat adalah 1/2. α sudut lancip (0 derajat < α < 90). Nilai cos sec α adalah .....",
@@ -61,16 +69,19 @@ const Kuis = () => {
         "E. 2/√3 = 2/3√3",
       ],
       correctAnswer: "E. 2/√3 = 2/3√3",
+      explanation: "Gunakan identitas trigonometri: cos(sec α) = 1/cos(α).",
     },
     {
       text: "10. Jika diketahui fungsi f(x) = x – 11, maka berapakah nilai f(x²) – 3f(x) – (f(x))²?",
       options: ["A. 19x – 99", "B. 19x – 165", "C. -25x – 90", "D. -25x + 143", "E. -3x + 11"],
       correctAnswer: "A. 19x – 99",
+      explanation: "Substitusi dan sederhanakan fungsi sesuai operasi yang diberikan.",
     },
     {
       text: "11. Pada segitiga PQR, diketahui panjang sisi PQ = 12 cm, QR = 10 cm, dan besar ∠Q = 30°. Luas segitiga PQR adalah ..... cm².",
       options: ["A. 30", "B. 30√2", "C. 30√3", "D. 45", "E. 60"],
       correctAnswer: "A. 30",
+      explanation: "Gunakan rumus luas segitiga: 1/2 × PQ × QR × sin(∠Q).",
     },
     {
       text: "12. Himpunan penyelesaian dari pertidaksamaan x² - 2x - 8 > 0 adalah .....",
@@ -82,6 +93,7 @@ const Kuis = () => {
         "E. {x│x ≤ -2 atau x > 4, x ∈ R}",
       ],
       correctAnswer: "E. {x│x ≤ -2 atau x > 4, x ∈ R}",
+      explanation: "Pecahkan pertidaksamaan kuadrat: faktorisasikan, lalu analisis nilai x.",
     },
     {
       text: "13. Diketahui g(x) = 2x + 3 dan f(x) = x² – 4x + 6, maka (fog)(x) adalah .....",
@@ -93,6 +105,7 @@ const Kuis = () => {
         "E. 4x² + 4x + 27",
       ],
       correctAnswer: "B. 2x² - 8x + 15",
+      explanation: "Substitusi g(x) ke f(x) menghasilkan ekspresi 2x² - 8x + 15.",
     },
     {
       text: "14. Nilai x dan y yang memenuhi sistem persamaan y = 2x – 3 dan 3x – 4y = 7 adalah .....",
@@ -104,11 +117,14 @@ const Kuis = () => {
         "E. x = -1 dan y = 1",
       ],
       correctAnswer: "C. x = 1 dan y = -1",
+      explanation: "Selesaikan sistem persamaan dengan substitusi atau eliminasi.",
     },
     {
-      text: "15. Diketahui f(x) = 3 – x. Nilai mutlak dari f(x) adalah .....",
-      options: ["A. |3 – x|", "B. |3| – |x|", "C. (3) – (x)", "D. (3 – x)", "E. 3 – x"],
-      correctAnswer: "A. |3 – x|",
+      text: "15. Diketahui log₆(36) = x, maka berapakah nilai dari x?",
+      options: ["A. 2", "B. 1", "C. 3", "D. 4", "E. 6"],
+      correctAnswer: "A. 2",
+      explanation:
+        "Untuk menyelesaikan logaritma log₆(36), kita perlu menulis 36 sebagai hasil perpangkatan dari 6. 6² = 36, jadi log₆(36) = 2.",
     },
   ]);
 
@@ -116,6 +132,7 @@ const Kuis = () => {
   const [localScore, setLocalScore] = useState(0);
   const [answered, setAnswered] = useState(false);
   const [selectedAnswer, setSelectedAnswer] = useState("");
+  const [quizStarted, setQuizStarted] = useState(false); // Tambahkan state untuk memulai kuis
 
   const handleAnswer = (answer, correctAnswer) => {
     setSelectedAnswer(answer);
@@ -132,13 +149,20 @@ const Kuis = () => {
   };
 
   const finishQuiz = () => {
-    updateGlobalScore(localScore); // Simpan skor ke konteks global
+    updateGlobalScore(localScore);
   };
 
   return (
     <div className="kuis-container">
       <h2>Kuis Matematika</h2>
-      {currentQuestion < questions.length ? (
+      {!quizStarted ? ( // Tampilan awal sebelum kuis dimulai
+        <div className="start-screen">
+          <p>Selamat datang di Kuis Matematika Kelas 10!</p>
+          <button className="start-button" onClick={() => setQuizStarted(true)}>
+            Ayo Mulai
+          </button>
+        </div>
+      ) : currentQuestion < questions.length ? (
         <div className="question-card">
           <div className="question-text">{questions[currentQuestion].text}</div>
           <div className="options">
@@ -164,6 +188,13 @@ const Kuis = () => {
               );
             })}
           </div>
+          {answered && (
+            <div className="explanation">
+              <p>
+                <strong>Penjelasan:</strong> {questions[currentQuestion].explanation}
+              </p>
+            </div>
+          )}
           {answered && (
             <button
               className="next-button"
