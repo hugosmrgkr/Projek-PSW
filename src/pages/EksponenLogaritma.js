@@ -66,7 +66,7 @@ const EksponenLogaritma = () => {
           <iframe
             width="560"
             height="315"
-            src="https://www.youtube.com/embed/dQw4w9WgXcQ" // Replace with your desired YouTube video URL
+            src="https://www.youtube.com/embed/lScgN1qnirY" 
             title="Eksponen dan Logaritma"
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -115,7 +115,18 @@ const EksponenLogaritma = () => {
         </div>
       </section>
 
-    <footer style={styles.footer}>
+      <section style={styles.section}>
+        <h2 style={styles.subtitle}>Gambar Ilustrasi</h2>
+        <div style={styles.imageContainer}>
+          <img
+            src="Eksponen.jpeg" // Replace with your desired image URL
+            alt="Ilustrasi Eksponen dan Logaritma"
+            style={styles.image}
+          />
+        </div>
+      </section>
+
+      <footer style={styles.footer}>
         <p style={styles.footerText}>© 2024 Materi Matematika Kelas 10. Semua hak dilindungi.</p>
       </footer>
     </div>
