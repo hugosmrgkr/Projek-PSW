@@ -127,8 +127,19 @@ const EksponenLogaritma = () => {
       </section>
 
       <footer style={styles.footer}>
-        <p style={styles.footerText}>© 2024 Materi Matematika Kelas 10. Semua hak dilindungi.</p>
-      </footer>
+  <div style={styles.logoContainer}>
+    <img
+      src="Logopsw.jpg" 
+      alt="Logo Forma10"
+      style={styles.logo}
+    />
+    <h2 style={styles.footerTitle}>Forma10 - FORM MATH X CLASS</h2>
+  </div>
+  <p style={styles.footerText}>
+    © 2024 Materi Matematika Kelas 10. Semua hak dilindungi.
+  </p>
+</footer>
+
     </div>
   );
 };
@@ -200,17 +211,42 @@ const styles = {
     borderRadius: "5px",
     boxShadow: "0 2px 8px rgba(0, 0, 0, 0.1)",
   },
-  footer: {
-    marginTop: "20px",
-    padding: "10px",
-    textAlign: "center",
-    background: "#b0e6ef",
-    borderRadius: "10px",
-  },
-  footerText: {
-    fontSize: "0.9em",
-    color: "#003f63",
-  },
+ footer: {
+      marginTop: "20px",
+      padding: "20px",
+      textAlign: "center",
+      background: "linear-gradient(135deg, #a0d8f1, #89c9e0)",
+      borderRadius: "15px",
+      boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
+      border: "1px solid #89c9e0",
+      color: "#002b49",
+      fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
+    },
+    logoContainer: {
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      gap: "10px",
+      marginBottom: "15px",
+    },
+    logo: {
+      width: "50px",
+      height: "50px",
+      borderRadius: "50%",
+      boxShadow: "0 2px 5px rgba(0, 0, 0, 0.2)",
+    },
+    footerTitle: {
+      fontSize: "1.2em",
+      fontWeight: "600",
+      color: "#002b49",
+    },
+    footerText: {
+      fontSize: "0.9em",
+      color: "#003f63",
+      marginTop: "10px",
+    },
+  
+  
   videoContainer: {
     textAlign: "center",
     marginBottom: "20px",
