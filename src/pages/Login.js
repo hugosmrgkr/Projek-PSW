@@ -63,9 +63,9 @@ const Login = () => {
       <div className="card shadow-lg" style={{ maxWidth: "900px", width: "100%" }}>
         <div className="row no-gutters">
           <div className="col-md-6 bg-primary text-white p-4">
-            <h2 className="mb-3 text-black">INFORMATION</h2>
+            <h2 className="mb-3 text-black">FORMA10</h2>
             <p>
-              Matematika kelas 10 adalah langkah awal untuk memahami konsep-konsep yang lebih kompleks. Pada
+              Matematika adalah langkah awal untuk memahami konsep-konsep yang lebih kompleks. Pada
               tahap ini, Anda akan belajar tentang aljabar, geometri, trigonometri, dan statistik.
             </p>
             <p>

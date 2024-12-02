@@ -170,8 +170,8 @@ const Home = () => {
       </style>
 
       <div className="hero-section">
-        <h1>Selamat Datang di Matematika Kelas 10</h1>
-        <p>Pelajari materi matematika dari dasar.</p>
+        <h1>Selamat Datang di FORMA10</h1>
+        <p>Pelajari materi matematika bersama FORMA10.</p>
       </div>
 
       <section className="materi-section">
