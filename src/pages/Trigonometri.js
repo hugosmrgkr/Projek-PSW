@@ -120,7 +120,7 @@ const Trigonometri = () => {
               Sinus atau bisa disingkat sin adalah perbandingan antara panjang sisi di depan sudut dan panjang sisi miring.
               Secara matematis, dirumuskan sebagai:
             </p>
-            <p style={styles.formula}>sin(θ) = opposite / hypotenuse</p>
+            <p style={styles.formula}>sin(θ) = sisi depan / sisi miring</p>
           </div>
 
           <div style={styles.exampleBox}>
@@ -129,7 +129,7 @@ const Trigonometri = () => {
               Kosinus atau biasa disebut cos adalah perbandingan antara panjang sisi di samping sudut dan panjang sisi miring.
               Secara matematis, dirumuskan sebagai:
             </p>
-            <p style={styles.formula}>cos(θ) = adjacent / hypotenuse</p>
+            <p style={styles.formula}>cos(θ) = sisi samping / sisi miring</p>
           </div>
 
           <div style={styles.exampleBox}>
@@ -138,7 +138,7 @@ const Trigonometri = () => {
               Tangen atau biasa disebut tan adalah perbandingan antara panjang sisi di depan sudut dan panjang sisi di samping sudut.
               Secara matematis, dirumuskan sebagai:
             </p>
-            <p style={styles.formula}>tan(θ) = opposite / adjacent</p>
+            <p style={styles.formula}>tan(θ) = sisi depan / sisi samping</p>
           </div>
         </section>
 
@@ -151,7 +151,7 @@ const Trigonometri = () => {
               Kosekan adalah perbandingan antara panjang sisi miring segitiga dan panjang sisi di depan sudut. Kosekan merupakan kebalikan dari sinus. 
               Secara matematis, dirumuskan sebagai:
             </p>
-            <p style={styles.formula}>csc(θ) = hypotenuse / opposite</p>
+            <p style={styles.formula}>csc(θ) = sisi miring / sisi depan</p>
           </div>
 
           <div style={styles.exampleBox}>
@@ -160,7 +160,7 @@ const Trigonometri = () => {
               Sekan adalah perbandingan antara panjang sisi miring segitiga dan panjang sisi di samping sudut. Sekan merupakan kebalikan dari kosinus. 
               Secara matematis, dirumuskan sebagai:
             </p>
-            <p style={styles.formula}>sec(θ) = hypotenuse / adjacent</p>
+            <p style={styles.formula}>sec(θ) =sisi miring / sisi samping</p>
           </div>
 
           <div style={styles.exampleBox}>
@@ -169,7 +169,7 @@ const Trigonometri = () => {
               Kotangen adalah perbandingan antara panjang sisi di samping sudut dan panjang sisi di depan sudut. Kotangen merupakan kebalikan dari tangen. 
               Secara matematis, dirumuskan sebagai:
             </p>
-            <p style={styles.formula}>cot(θ) = adjacent / opposite</p>
+            <p style={styles.formula}>cot(θ) = sisi samping / sisi depan</p>
           </div>
         </section>
 
@@ -216,6 +216,37 @@ const Trigonometri = () => {
           </table>
         </section>
 
+        {/* Video */}
+        <section style={styles.section}>
+          <h2 style={styles.sectionTitle}>Video Penjelasan</h2>
+          <p style={styles.paragraph}>Simak video berikut untuk memahami fungsi kuadrat:</p>
+          <div
+            style={{
+              position: "relative",
+              overflow: "hidden",
+              width: "100%",
+              paddingTop: "56.25%", // 16:9 Aspect Ratio
+              borderRadius: "10px",
+              boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+            }}
+          >
+            <iframe
+              style={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                width: "100%",
+                height: "100%",
+                border: "none",
+              }}
+              src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+              title="Penjelasan Fungsi Kuadrat"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+          </div>
+        </section>
+
         {/* Aplikasi Trigonometri */}
         <section style={styles.section}>
           <h2 style={styles.sectionTitle}>Aplikasi Trigonometri</h2>
@@ -228,6 +259,133 @@ const Trigonometri = () => {
             <li style={styles.listItem}>Analisis gerakan dalam fisika dan astronomi.</li>
             <li style={styles.listItem}>Navigasi dan pemetaan geografi.</li>
           </ul>
+          <main style={styles.content}></main>
+        {/* Contoh Soal */}
+        <section style={styles.section}>
+          <h2 style={styles.sectionTitle}>Contoh Soal</h2>
+          </section>
+
+          {/* Soal 1 */}
+          <div style={styles.exampleBox}>
+            <p style={styles.paragraph}>
+              <strong>Soal 1:</strong> Dari ΔABC diketahui sudut A = 120°, sudut
+              B = 30° dan AC = 5 cm. Maka, panjang sisi BC adalah ….
+              <br />
+              A. 2 ½ cm <br />
+              B. 5√2 cm <br />
+              C. 5/2√2 cm <br />
+              D. 5√2 cm <br />
+              E. 5√3 cm
+            </p>
+            <details style={styles.details}>
+              <summary>Lihat Pembahasan</summary>
+              <p style={styles.detailsParagraph}>
+                Diketahui, sudut A = 120°, sudut B = 30°, panjang AC = 5 cm.
+                <br />
+                Ditanyakan, panjang BC?
+                <br />
+                Dengan aturan sinus:
+                <br />
+                BC/sinA = AC/sinB
+                <br />
+                BC/sin120° = 5/sin30°
+                <br />
+                BC/½√3 = 5/½
+                <br />
+                BC = 5√3
+                <br />
+                Jawaban: <strong>E</strong>
+              </p>
+            </details>
+          </div>
+
+          {/* Soal 2 */}
+          <div style={styles.exampleBox}>
+            <p style={styles.paragraph}>
+              <strong>Soal 2:</strong> Koordinat cartesius dari titik (2,210°)
+              adalah …
+              <br />
+              A. (√3, -1) <br />
+              B. (-√3, -1) <br />
+              C. (1, -√3) <br />
+              D. (-1, -√3) <br />
+              E. (-1, √3)
+            </p>
+            <details style={styles.details}>
+              <summary>Lihat Pembahasan</summary>
+              <p style={styles.detailsParagraph}>
+                Diketahui, r = 2, α = 210°
+                <br />
+                Ditanyakan, koordinat cartesius?
+                <br />
+                x = r cos α = 2 cos 210° = 2 × (-√3/2) = -√3
+                <br />
+                y = r sin α = 2 sin 210° = 2 × (-½) = -1
+                <br />
+                Jawaban: <strong>B</strong>
+              </p>
+            </details>
+          </div>
+
+          {/* Soal 3 */}
+          <div style={styles.exampleBox}>
+            <p style={styles.paragraph}>
+              <strong>Soal 3:</strong> Himpunan penyelesaian dari persamaan
+              trigonometri sin x = ½, untuk 0° ≤ x ≤ 180° adalah …
+              <br />
+              A. (45°, 150°) <br />
+              B. (30°, 100°) <br />
+              C. (45°, 100°) <br />
+              D. (30°, 150°) <br />
+              E. (30°, 120°)
+            </p>
+            <details style={styles.details}>
+              <summary>Lihat Pembahasan</summary>
+              <p style={styles.detailsParagraph}>
+                Diketahui sin x = ½. Dari identitas:
+                <br />
+                sin x = sin 30°.
+                <br />
+                Solusi:
+                <br />
+                x = 30°, 150°.
+                <br />
+                Jawaban: <strong>D</strong>
+              </p>
+            </details>
+          </div>
+
+          {/* Soal 4 */}
+          <div style={styles.exampleBox}>
+            <p style={styles.paragraph}>
+              <strong>Soal 4:</strong> Seorang anak berdiri di suatu tempat A
+              di tepi sungai. Ia mengamati dua pohon, B dan C. Pohon B tepat
+              berada di seberang A. Jarak BC = 8√6 meter, sudut BAC = 30°. Lebar
+              sungai adalah …
+              <br />
+              A. 8/3√2 m <br />
+              B. 8√2 m <br />
+              C. 8√3 m <br />
+              D. 24√2 m <br />
+              E. 24√3 m
+            </p>
+            <details style={styles.details}>
+              <summary>Lihat Pembahasan</summary>
+              <p style={styles.detailsParagraph}>
+                Dengan aturan sinus:
+                <br />
+                BC/sinA = AB/sinC
+                <br />
+                8√6/½ = AB/½√3
+                <br />
+                AB = 24√2 m
+                <br />
+                Jawaban: <strong>D</strong>
+                </p>
+                
+            </details>
+          </div>
+
         </section>
       </main>
     </div>

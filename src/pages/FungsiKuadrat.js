@@ -136,7 +136,7 @@ const FungsiKuadrat = () => {
 
         {/* Video */}
         <section style={styles.section}>
-          <h2 style={styles.sectionTitle}>Penjelasan Video</h2>
+          <h2 style={styles.sectionTitle}>Video Penjelasan</h2>
           <p style={styles.paragraph}>Simak video berikut untuk memahami fungsi kuadrat:</p>
           <div
             style={{
