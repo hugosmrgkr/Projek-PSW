@@ -48,7 +48,7 @@ const newsData = [
     id: "peluang-dasar",
     title: "Peluang Dasar",
     description: "Pelajari peluang dasar secara visual dan menarik.",
-    image: "/materi8.jpeg",
+    image: "/peluang dasar.jpg",
   },
 ];
 

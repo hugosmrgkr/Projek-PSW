@@ -77,24 +77,24 @@ const EksponenLogaritma = () => {
 <br></br>
 
       <section style={styles.examples}>
-        <div style={styles.card}>
-          <h2 style={styles.subtitle}>Eksponen</h2>
-          <p style={styles.text}>
-            Eksponen menunjukkan berapa kali suatu bilangan (basis) dikalikan dengan dirinya sendiri.
-            <br />
-            Contoh: 2³ = 2 × 2 × 2 = {contohEksponen}.
-          </p>
-        </div>
+      <div style={styles.card}>
+  <h2 style={styles.eksponenTitle}>Eksponen</h2>  {/* Eksponen with a bold, clean font */}
+  <p style={styles.text}>
+    Eksponen menunjukkan berapa kali suatu bilangan (basis) dikalikan dengan dirinya sendiri.
+    <br />
+    <strong>Contoh:</strong> 2³ = 2 × 2 × 2 = {contohEksponen}.
+  </p>
+</div>
 
-        <div style={styles.card}>
-          <h2 style={styles.subtitle}>Logaritma</h2>
-          <p style={styles.text}>
-            Logaritma adalah operasi yang membalikkan eksponen.
-            <br />
-            Contoh: Jika 2³ = 8, maka log₂(8) = {contohLogaritma}.
-          </p>
-        </div>
-      </section>
+<div style={styles.card}>
+  <h2 style={styles.logaritmaTitle}>Logaritma</h2>  {/* Logaritma with a sleek, elegant font */}
+  <p style={styles.text}>
+    Logaritma adalah operasi yang membalikkan eksponen.
+    <br />
+    <strong>Contoh:</strong> Jika 2³ = 8, maka log₂(8) = {contohLogaritma}.
+  </p>
+</div>
+</section>
 
       <section style={styles.section}>
         <h2 style={styles.subtitle}>Contoh Soal</h2>
@@ -161,22 +161,21 @@ const styles = {
     padding: "20px",
     borderRadius: "10px",
     marginBottom: "20px",
-    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)", // Bayangan halus
+    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)", 
   },
   title: {
-    fontSize: "3.5em", // Ukuran lebih besar
-    color: "#003f63", // Warna teks utama
+    fontSize: "3.5em", 
+    color: "#003f63", 
     margin: 0,
-    fontFamily: "'Playfair Display', serif", // Font keren
-    textShadow: "2px 2px 5px rgba(0, 0, 0, 0.2)", // Efek bayangan teks
-    letterSpacing: "1px", // Spasi antar huruf
+    fontFamily: "'Playfair Display', serif", 
+    textShadow: "2px 2px 5px rgba(0, 0, 0, 0.2)", 
+    letterSpacing: "1px", 
   },
   subtitle: {
-    fontSize: "2em", // Lebih besar dari sebelumnya
-    color: "#007699",
+    fontSize: "2em", 
     marginBottom: "10px",
-    fontWeight: "600", // Penegasan pada teks
-   
+    fontWeight: "600", 
+    fontFamily: "'Raleway', sans-serif",
     paddingBottom: "5px",
   },
   
