@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useScore } from "../components/ScoreContext";
 import "../styles/kuis.css";
 
@@ -132,12 +133,13 @@ const Kuis = () => {
   const [localScore, setLocalScore] = useState(0);
   const [answered, setAnswered] = useState(false);
   const [selectedAnswer, setSelectedAnswer] = useState("");
-  const [quizStarted, setQuizStarted] = useState(false); // Tambahkan state untuk memulai kuis
+  const [quizStarted, setQuizStarted] = useState(false);
+  const navigate = useNavigate();
 
   const handleAnswer = (answer, correctAnswer) => {
     setSelectedAnswer(answer);
     if (answer === correctAnswer) {
-      setLocalScore((prevScore) => prevScore + 1);
+      setLocalScore((prevScore) => prevScore + 10);
     }
     setAnswered(true);
   };
@@ -150,12 +152,17 @@ const Kuis = () => {
 
   const finishQuiz = () => {
     updateGlobalScore(localScore);
+    navigate("/statistik-belajar"); 
+  };
+
+  const calculateAverage = () => {
+    return (localScore / (questions.length * 10)) * 100; // Rata-rata dalam bentuk persentase
   };
 
   return (
     <div className="kuis-container">
       <h2>Kuis Matematika</h2>
-      {!quizStarted ? ( // Tampilan awal sebelum kuis dimulai
+      {!quizStarted ? (
         <div className="start-screen">
           <p>Selamat datang di Kuis Matematika Kelas 10!</p>
           <button className="start-button" onClick={() => setQuizStarted(true)}>
@@ -210,8 +217,11 @@ const Kuis = () => {
           <p>
             Skor Anda:{" "}
             <strong>
-              {localScore}/{questions.length}
+              {localScore}/{questions.length * 10}
             </strong>
+          </p>
+          <p>
+            Rata-rata Anda: <strong>{calculateAverage().toFixed(2)}%</strong>
           </p>
           <p>Terima kasih telah mengikuti kuis ini!</p>
         </div>
