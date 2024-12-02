@@ -61,19 +61,20 @@ const EksponenLogaritma = () => {
       </section>
 
       <section style={styles.section}>
-        <h2 style={styles.subtitle}>Video Pembelajaran</h2>
-        <div style={styles.videoContainer}>
-          <iframe
-            width="560"
-            height="315"
-            src="https://www.youtube.com/embed/lScgN1qnirY" 
-            title="Eksponen dan Logaritma"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          ></iframe>
-        </div>
-      </section>
+  <h2 style={styles.subtitle}>Video Pembelajaran</h2>
+  <div style={styles.videoContainer}>
+    <iframe
+      src="https://www.youtube.com/embed/lScgN1qnirY"
+      title="Eksponen dan Logaritma"
+      style={styles.videoFrame}
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowFullScreen
+    ></iframe>
+  </div>
+</section>
+
+<br></br>
+<br></br>
 
       <section style={styles.examples}>
         <div style={styles.card}>
@@ -116,15 +117,16 @@ const EksponenLogaritma = () => {
       </section>
 
       <section style={styles.section}>
-        <h2 style={styles.subtitle}>Gambar Ilustrasi</h2>
-        <div style={styles.imageContainer}>
-          <img
-            src="Eksponen.jpeg" // Replace with your desired image URL
-            alt="Ilustrasi Eksponen dan Logaritma"
-            style={styles.image}
-          />
-        </div>
-      </section>
+  <h2 style={styles.subtitle}>Gambar Ilustrasi</h2>
+  <div style={styles.imageContainer}>
+    <img
+      src="Eksponen.jpeg" 
+      alt="Ilustrasi Eksponen dan Logaritma"
+      style={styles.image}
+    />
+  </div>
+</section>
+
 
       <footer style={styles.footer}>
   <div style={styles.logoContainer}>
@@ -159,20 +161,25 @@ const styles = {
     padding: "20px",
     borderRadius: "10px",
     marginBottom: "20px",
+    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)", // Bayangan halus
   },
   title: {
-    fontSize: "2.5em",
-    color: "#003f63",
+    fontSize: "3.5em", // Ukuran lebih besar
+    color: "#003f63", // Warna teks utama
     margin: 0,
-  },
-  section: {
-    marginBottom: "20px",
+    fontFamily: "'Playfair Display', serif", // Font keren
+    textShadow: "2px 2px 5px rgba(0, 0, 0, 0.2)", // Efek bayangan teks
+    letterSpacing: "1px", // Spasi antar huruf
   },
   subtitle: {
-    fontSize: "1.8em",
+    fontSize: "2em", // Lebih besar dari sebelumnya
     color: "#007699",
     marginBottom: "10px",
+    fontWeight: "600", // Penegasan pada teks
+   
+    paddingBottom: "5px",
   },
+  
   text: {
     fontSize: "1em",
     color: "#555",
@@ -247,19 +254,48 @@ const styles = {
     },
   
   
-  videoContainer: {
-    textAlign: "center",
-    marginBottom: "20px",
-  },
-  imageContainer: {
-    textAlign: "center",
-    marginTop: "20px",
-  },
-  image: {
-    width: "100%",
-    maxWidth: "600px",
-    borderRadius: "10px",
-  },
+    videoContainer: {
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      marginBottom: "20px",
+      padding: "20px",
+      background: "linear-gradient(135deg, #bbdefb, #e3f2fd)", // Warna latar biru muda
+      borderRadius: "12px",
+      boxShadow: "0 6px 12px rgba(0, 0, 0, 0.2)", // Bayangan lebih lembut
+      maxWidth: "600px", // Batas lebar maksimum
+      margin: "0 auto", // Video di tengah
+    },
+    videoFrame: {
+      width: "100%",
+      maxWidth: "400px", // Ukuran video lebih kecil
+      aspectRatio: "16 / 9", // Menjaga rasio aspek
+      border: "none",
+      borderRadius: "8px",
+    },
+    
+    
+    
+    
+    imageContainer: {
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      padding: "20px",
+      background: "linear-gradient(135deg, #bbdefb, #e3f2fd)", 
+      borderRadius: "12px", 
+      boxShadow: "0 6px 12px rgba(0, 0, 0, 0.2)", 
+      maxWidth: "650px", 
+      margin: "20px auto", 
+    },
+    image: {
+      width: "100%",
+      maxWidth: "500px", 
+      borderRadius: "10px", 
+      boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)", 
+      objectFit: "cover", 
+    },
+    
 };
 
 export default EksponenLogaritma;
