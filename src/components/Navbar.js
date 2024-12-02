@@ -13,11 +13,19 @@ const Navbar = () => {
           }
 
           .navbar-brand {
+            display: flex;
+            align-items: center;
             color: #ffffff;
             font-weight: bold;
             text-transform: uppercase;
             font-size: 18px;
             text-decoration: none;
+          }
+
+          .navbar-brand img {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px; 
           }
 
           .navbar-nav .nav-link {
@@ -54,14 +62,18 @@ const Navbar = () => {
           }
 
           .navbar-toggler-icon {
-            background-image: url("data:image/svg+xml;charset=UTF8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255,1)' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+            background-image: url("/logopsw.jpg");
           }
         `}
       </style>
       <nav className="navbar navbar-expand-lg">
         <div className="container">
           <Link className="navbar-brand" to="/home">
-            Matematika Kelas 10
+            <img
+              src="/logopsw.jpg" 
+              alt="Forma10 Logo"
+            />
+            Forma10
           </Link>
           <button
             className="navbar-toggler"
@@ -97,7 +109,7 @@ const Navbar = () => {
                     </Link>
                   </li>
                   <li>
-                    <Link className="dropdown-item" to="/materi/sistem-persamaan-linear-kuadrat">
+                    <Link className="dropdown-item" to="/materi/sistem-persamaan">
                       Sistem Persamaan Linear dan Kuadrat
                     </Link>
                   </li>
