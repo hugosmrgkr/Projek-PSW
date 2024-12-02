@@ -109,7 +109,7 @@ const Navbar = () => {
                     </Link>
                   </li>
                   <li>
-                    <Link className="dropdown-item" to="/materi/sistem-persamaan-linear-kuadrat">
+                    <Link className="dropdown-item" to="/materi/sistem-persamaan">
                       Sistem Persamaan Linear dan Kuadrat
                     </Link>
                   </li>
