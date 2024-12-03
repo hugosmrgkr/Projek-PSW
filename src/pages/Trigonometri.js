@@ -220,7 +220,7 @@ const Trigonometri = () => {
           <iframe
             width="70%"
             height="400"
-            src="https://www.youtube.com/embed/vvb4jfxnQzI"
+            src="https://www.youtube.com/embed/NhVq5N5K2-w"
             title="Video Penjelasan Transformasi Geometri"
             frameBorder="0"
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
