@@ -62,7 +62,7 @@ const Navbar = () => {
           }
 
           .navbar-toggler-icon {
-            background-image: url("/logopsw.jpg");
+            background-image: url("/forma.png");
           }
         `}
       </style>
@@ -70,7 +70,7 @@ const Navbar = () => {
         <div className="container">
           <Link className="navbar-brand" to="/home">
             <img
-              src="/logopsw.jpg" 
+              src="/forma.png" 
               alt="Forma10 Logo"
             />
             Forma10
