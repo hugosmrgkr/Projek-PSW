@@ -8,6 +8,7 @@ const Kontak = () => {
     website: "",
     message: "",
   });
+  const [showPreview, setShowPreview] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -16,48 +17,65 @@ const Kontak = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Data terkirim:", formData);
     alert("Pesan Anda berhasil dikirim!");
     setFormData({ name: "", email: "", phone: "", website: "", message: "" });
+    setShowPreview(false);
+  };
+
+  const togglePreview = () => {
+    setShowPreview(!showPreview);
   };
 
   return (
-    <div className="contact-container">
+    <div className="contact-page">
       <style>
         {`
+          .contact-page {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 30px;
+            padding: 40px;
+            font-family: Arial, sans-serif;
+          }
+
           .contact-container {
-            max-width: 500px;
-            margin: 50px auto;
+            max-width: 600px;
             padding: 20px;
             border: 1px solid #ccc;
-            border-radius: 10px;
-            background-color: #f9f9f9;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            background-color: #ffffff;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+            width: 100%;
           }
 
           .contact-header {
             text-align: center;
             background-color: #333;
             color: white;
-            padding: 10px;
-            border-radius: 10px 10px 0 0;
+            padding: 15px;
+            border-radius: 8px 8px 0 0;
+            margin-bottom: 20px;
           }
 
           .form-group {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
           }
 
           .form-group label {
             display: block;
             font-weight: bold;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
+            font-size: 14px;
           }
 
           .form-control {
             width: 100%;
-            padding: 10px;
+            padding: 12px;
             border: 1px solid #ccc;
             border-radius: 5px;
+            font-size: 14px;
+            box-sizing: border-box;
           }
 
           .form-control:focus {
@@ -68,82 +86,183 @@ const Kontak = () => {
           .btn-primary {
             display: block;
             width: 100%;
-            padding: 10px;
+            padding: 12px;
             background-color: #007bff;
             color: white;
             border: none;
             border-radius: 5px;
             font-size: 16px;
             cursor: pointer;
+            margin-bottom: 10px;
           }
 
           .btn-primary:hover {
             background-color: #0056b3;
           }
+
+          .preview-container {
+            flex: 1;
+            max-width: 400px;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: translateX(100%);
+            transition: all 0.5s ease;
+            background-color: #f9f9f9;
+          }
+
+          .preview-container.show {
+            opacity: 1;
+            transform: translateX(0);
+          }
+
+          .preview-header {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            text-align: center;
+            color: #333;
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            border-radius: 8px;
+          }
+
+          .preview-item {
+            margin-bottom: 12px;
+            font-size: 15px;
+            color: #333;
+          }
+
+          .preview-item strong {
+            display: inline-block;
+            width: 130px;
+            font-weight: bold;
+            color: #007bff;
+          }
+
+          .preview-item span {
+            display: block;
+            font-size: 14px;
+            color: #555;
+          }
+
+          .preview-container .preview-item + .preview-item {
+            border-top: 1px solid #e1e1e1;
+            padding-top: 12px;
+            margin-top: 12px;
+          }
         `}
       </style>
-      <div className="contact-header">
-        <h2>Kontak Kami</h2>
+
+      {/* Form Container */}
+      <div className="contact-container">
+        <div className="contact-header">
+          <h2>Kontak Kami</h2>
+        </div>
+        <form onSubmit={handleSubmit}>
+          <div className="form-group">
+            <label>
+              Nama <span style={{ color: "red" }}>*</span>
+            </label>
+            <input
+              type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              className="form-control"
+              required
+            />
+          </div>
+          <div className="form-group">
+            <label>
+              Email <span style={{ color: "red" }}>*</span>
+            </label>
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              className="form-control"
+              required
+            />
+          </div>
+          <div className="form-group">
+            <label>
+              Nomor Kontak <span style={{ color: "red" }}>*</span>
+            </label>
+            <input
+              type="text"
+              name="phone"
+              value={formData.phone}
+              onChange={handleChange}
+              className="form-control"
+              required
+            />
+          </div>
+          <div className="form-group">
+            <label>Nama Materi</label>
+            <input
+              type="text"
+              name="website"
+              value={formData.website}
+              onChange={handleChange}
+              className="form-control"
+            />
+          </div>
+          <div className="form-group">
+            <label>
+              Pesan <span style={{ color: "red" }}>*</span>
+            </label>
+            <textarea
+              name="message"
+              value={formData.message}
+              onChange={handleChange}
+              className="form-control"
+              rows="4"
+              required
+            />
+          </div>
+          <button type="submit" className="btn-primary">
+            Kirim
+          </button>
+          <button
+            type="button"
+            onClick={togglePreview}
+            className="btn-primary"
+            style={{ backgroundColor: "#28a745" }}
+          >
+            {showPreview ? "Sembunyikan Preview" : "Lihat Preview"}
+          </button>
+        </form>
       </div>
-      <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label>Nama <span style={{ color: "red" }}>*</span></label>
-          <input
-            type="text"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            className="form-control"
-            required
-          />
+
+      {/* Preview Container */}
+      <div className={`preview-container ${showPreview ? "show" : ""}`}>
+        <div className="preview-header">Preview Pesan Anda</div>
+        <div className="preview-item">
+          <strong>Nama:</strong>
+          <span>{formData.name}</span>
         </div>
-        <div className="form-group">
-          <label>Email <span style={{ color: "red" }}>*</span></label>
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            className="form-control"
-            required
-          />
+        <div className="preview-item">
+          <strong>Email:</strong>
+          <span>{formData.email}</span>
         </div>
-        <div className="form-group">
-          <label>Nomor Kontak <span style={{ color: "red" }}>*</span></label>
-          <input
-            type="text"
-            name="phone"
-            value={formData.phone}
-            onChange={handleChange}
-            className="form-control"
-            required
-          />
+        <div className="preview-item">
+          <strong>Nomor Kontak:</strong>
+          <span>{formData.phone}</span>
         </div>
-        <div className="form-group">
-          <label>Nama Materi</label>
-          <input
-            type="text"
-            name="website"
-            value={formData.website}
-            onChange={handleChange}
-            className="form-control"
-          />
+        <div className="preview-item">
+          <strong>Nama Materi:</strong>
+          <span>{formData.website}</span>
         </div>
-        <div className="form-group">
-          <label>Pesan <span style={{ color: "red" }}>*</span></label>
-          <textarea
-            name="message"
-            value={formData.message}
-            onChange={handleChange}
-            className="form-control"
-            rows="4"
-            required
-          />
+        <div className="preview-item">
+          <strong>Pesan:</strong>
+          <span>{formData.message}</span>
         </div>
-        <button type="submit" className="btn-primary">
-          Kirim
-        </button>
-      </form>
+      </div>
     </div>
   );
 };
