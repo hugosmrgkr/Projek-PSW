@@ -45,20 +45,21 @@ const EksponenLogaritma = () => {
       </header>
 
       <section style={styles.section}>
-        <p style={styles.text}>
-          Dalam matematika, <strong>Eksponen</strong> dan <strong>Logaritma</strong> adalah dua konsep yang sangat penting.
-          Keduanya digunakan dalam berbagai bidang seperti fisika, keuangan, dan ilmu komputer.
-          <br />
-          <br />
-          <strong>Eksponen</strong> mengacu pada operasi matematika yang menunjukkan berapa kali suatu bilangan (basis) dikalikan dengan dirinya sendiri.
-          Sebagai contoh, 2³ = 8, artinya 2 dikalikan dengan dirinya sendiri sebanyak 3 kali.
-          <br />
-          <br />
-          <strong>Logaritma</strong>, di sisi lain, adalah operasi yang membalikkan operasi eksponen.
-          Dengan kata lain, logaritma memberikan kita informasi tentang berapa banyak kali suatu bilangan (basis) harus dipangkatkan untuk mendapatkan angka tertentu.
-          Sebagai contoh, log₂(8) = 3, artinya kita harus mengalikan 2 sebanyak 3 kali untuk mendapatkan 8.
-        </p>
-      </section>
+  <h2 style={styles.subtitle}>Eksponen dan Logaritma</h2>
+  <p style={styles.text}>
+    Dalam matematika, <strong>Eksponen</strong> dan <strong>Logaritma</strong> adalah dua konsep yang sangat penting.
+    Keduanya digunakan dalam berbagai bidang seperti fisika, keuangan, dan ilmu komputer.
+    <br />
+    <br />
+    <strong>Eksponen</strong> mengacu pada operasi matematika yang menunjukkan berapa kali suatu bilangan (basis) dikalikan dengan dirinya sendiri.
+    Sebagai contoh, <code>2³ = 8</code>, artinya 2 dikalikan dengan dirinya sendiri sebanyak 3 kali.
+    <br />
+    <br />
+    <strong>Logaritma</strong>, di sisi lain, adalah operasi yang membalikkan operasi eksponen.
+    Dengan kata lain, logaritma memberikan kita informasi tentang berapa banyak kali suatu bilangan (basis) harus dipangkatkan untuk mendapatkan angka tertentu.
+    Sebagai contoh, <code>log₂(8) = 3</code>, artinya kita harus mengalikan 2 sebanyak 3 kali untuk mendapatkan 8.
+  </p>
+</section>
 
       <section style={styles.section}>
   <h2 style={styles.subtitle}>Video Pembelajaran</h2>
@@ -117,7 +118,7 @@ const EksponenLogaritma = () => {
       </section>
 
       <section style={styles.section}>
-  <h2 style={styles.subtitle}>Gambar Ilustrasi</h2>
+  <h2 style={styles.subtitle}>Gambar</h2>
   <div style={styles.imageContainer}>
     <img
       src="Eksponen.jpeg" 

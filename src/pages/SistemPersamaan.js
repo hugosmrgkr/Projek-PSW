@@ -117,7 +117,7 @@ const SistemPersamaan = () => {
 <br></br>
       
       <section style={styles.examplesSection}>
-        <h2 style={styles.subtitle}>Contoh Soal Interaktif</h2>
+        <h2 style={styles.subtitle}>Contoh Soal</h2>
         <div style={styles.examplesList}>
           {examples.map((item, index) => (
             <div key={index} style={styles.card}>
@@ -139,7 +139,7 @@ const SistemPersamaan = () => {
       </section>
 
       <section style={styles.section}>
-  <h2 style={styles.subtitle}>Gambar Ilustrasi</h2>
+  <h2 style={styles.subtitle}>Gambar</h2>
   <div style={styles.imageContainer}>
     <img
       src="SistemLin.jpg" 

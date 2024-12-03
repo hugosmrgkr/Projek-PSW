@@ -47,18 +47,47 @@ const BarisanDeret = () => {
       </header>
 
       <section style={styles.section}>
-        <p style={styles.text}>
-          Barisan dan deret adalah konsep penting dalam matematika. Barisan adalah urutan angka, sedangkan deret adalah jumlah dari angka-angka dalam barisan.
-          <br />
-          <strong>Barisan Aritmatika:</strong> Barisan dengan selisih tetap antara dua suku berturut-turut. Misalnya, 3, 5, 7, 9, ... dengan beda 2.
-          <br />
-          <strong>Barisan Geometri:</strong> Barisan dengan rasio tetap antara dua suku berturut-turut. Misalnya, 2, 6, 18, 54, ... dengan rasio 3.
-          <br />
-          <strong>Deret Aritmatika:</strong> Jumlah dari beberapa suku dalam barisan aritmatika.
-          <br />
-          <strong>Deret Geometri:</strong> Jumlah dari beberapa suku dalam barisan geometri.
-        </p>
-      </section>
+  <h2 style={styles.heading}>Barisan dan Deret</h2>
+  <p style={styles.text}>
+    Barisan dan deret adalah konsep penting dalam matematika. Barisan adalah urutan angka, sedangkan deret adalah jumlah dari angka-angka dalam barisan.
+  </p>
+  <ul style={styles.list}>
+    <li>
+      <strong>Barisan Aritmatika:</strong> Barisan dengan selisih tetap antara dua suku berturut-turut. 
+      <br />
+      Contoh: <em>3, 5, 7, 9, ...</em> dengan beda (<em>b</em>) = <em>2</em>.
+      <br />
+      <strong>Rumus suku ke-n:</strong> 
+      <code>Un = a + (n - 1)b</code>, 
+      di mana <em>a</em> adalah suku pertama dan <em>b</em> adalah beda.
+    </li>
+    <li>
+      <strong>Barisan Geometri:</strong> Barisan dengan rasio tetap antara dua suku berturut-turut. 
+      <br />
+      Contoh: <em>2, 6, 18, 54, ...</em> dengan rasio (<em>r</em>) = <em>3</em>.
+      <br />
+      <strong>Rumus suku ke-n:</strong> 
+      <code>Un = a * r^(n - 1)</code>, 
+      di mana <em>a</em> adalah suku pertama dan <em>r</em> adalah rasio.
+    </li>
+    <li>
+      <strong>Deret Aritmatika:</strong> Jumlah dari beberapa suku dalam barisan aritmatika.
+      <br />
+      <strong>Rumus jumlah n suku pertama:</strong> 
+      <code>Sn = n/2 * (a + Un)</code> atau <code>Sn = n/2 * (2a + (n - 1)b)</code>.
+    </li>
+    <li>
+      <strong>Deret Geometri:</strong> Jumlah dari beberapa suku dalam barisan geometri.
+      <br />
+      <strong>Rumus jumlah n suku pertama:</strong> 
+      <code>Sn = a * (1 - r^n) / (1 - r)</code>, untuk <em>r ≠ 1</em>.
+    </li>
+  </ul>
+  <p style={styles.text}>
+    Barisan dan deret memiliki banyak aplikasi, seperti dalam menghitung bunga majemuk, memprediksi pola, dan memecahkan masalah praktis di berbagai bidang.
+  </p>
+</section>
+
 
       <section style={styles.section}>
   <h2 style={styles.subtitle}>Video Pembelajaran</h2>
@@ -94,7 +123,7 @@ const BarisanDeret = () => {
       </section>
 
       <section style={styles.section}>
-  <h2 style={styles.subtitle}>Gambar Ilustrasi</h2>
+  <h2 style={styles.subtitle}>Gambar</h2>
   <div style={styles.imageContainer}>
     <img
       src="Barisan.jpeg" 
@@ -255,6 +284,7 @@ const styles = {
     boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)", 
     objectFit: "cover", 
   },
+  
 };
 
 export default BarisanDeret;
