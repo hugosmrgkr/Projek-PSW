@@ -3,69 +3,117 @@ import React from "react";
 const Peluang = () => {
   const styles = {
     container: {
-      maxWidth: "1000px",
-      margin: "20px auto",
-      background: "#fff",
-      borderRadius: "10px",
+      maxWidth: "90%", // Increase width to 90% of the screen, allowing more space
+      margin: "20px auto", // Center the content with some space around it
+      background: "#faf3e0", // Background coklat muda yang lembut
+      borderRadius: "12px",
       boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
       overflow: "hidden",
-      fontFamily: "Arial, sans-serif",
-      color: "#333",
-      lineHeight: "1.6",
+      fontFamily: "'Poppins', sans-serif",
+      color: "#333", // Teks gelap untuk kontras
     },
     header: {
-      background: "#0077b6",
-      color: "#fff",
+      background: "#d1b097", // Coklat muda untuk header
       textAlign: "center",
-      padding: "20px",
+      padding: "40px", // Increase padding for a more spacious header
     },
     headerTitle: {
       margin: 0,
-      fontSize: "2rem",
+      fontSize: "2.8rem", // Increase the font size of the header title
+      fontWeight: "bold",
+      color: "#ffffff",
     },
     headerSubtitle: {
       margin: "10px 0 0",
-      fontSize: "1rem",
+      fontSize: "1.3rem", // Slightly larger subtitle font size
+      color: "#e1d7b9", // Teks abu-abu muda agar lebih soft
     },
     content: {
-      padding: "20px",
+      padding: "30px", // Increase padding for more space around content
     },
     section: {
-      marginBottom: "20px",
+      marginBottom: "40px", // Increased bottom margin for sections
     },
     sectionTitle: {
-      fontSize: "1.5rem",
-      color: "#28a745",
-      marginBottom: "10px",
+      fontSize: "2rem", // Increased font size for section titles
+      color: "#6d4c41", // Warna coklat tua untuk judul bagian
+      marginBottom: "20px", // More space below section titles
+      borderBottom: "2px solid #d1b097", // Garis bawah coklat muda
+      paddingBottom: "5px",
     },
     paragraph: {
-      margin: "10px 0",
+      margin: "15px 0", // Increased margin for paragraphs
+      color: "#555", // Teks gelap dengan kontras tinggi
+      textAlign: "justify",
     },
-    list: {
-      listStyleType: "decimal",
-      paddingLeft: "20px",
+    videoContainer: {
+      textAlign: "center",
+      marginBottom: "40px", // Increased bottom margin for video section
+      padding: "20px",
+      background: "#f5e6d3", // Coklat muda untuk latar belakang video
+      borderRadius: "12px",
     },
-    listItem: {
-      margin: "5px 0",
+    soalWrapper: {
+      display: "flex",
+      flexWrap: "wrap",
+      gap: "20px",
+      justifyContent: "center",
     },
-    exampleBox: {
-      background: "#f9f9f9",
+    soalBox: {
+      flex: "1 1 calc(48% - 20px)", // Responsif, set lebar 48% dengan jarak antar item
+      background: "#ffffff", // Kotak soal dengan latar belakang putih
+      color: "#333", // Teks gelap
+      borderRadius: "12px",
+      padding: "20px",
+      boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+      transition: "transform 0.3s ease, box-shadow 0.3s ease",
+      cursor: "pointer",
+    },
+    soalBoxHover: {
+      transform: "scale(1.02)",
+      boxShadow: "0 8px 16px rgba(0, 0, 0, 0.2)",
+    },
+    jenis: {
+      color: "#6d4c41", // Coklat tua untuk judul soal
+      fontSize: "1.6rem", // Slightly larger font for the type of question
+      marginBottom: "10px",
+    },
+    deskripsi: {
+      fontSize: "1.1rem", // Larger font size for descriptions
+      marginBottom: "20px", // More margin below descriptions
+      textAlign: "justify",
+      color: "#6d4c41", // Coklat untuk deskripsi
+    },
+    soalContainer: {
+      background: "#f5e6d3", // Latar belakang coklat muda untuk soal
+      borderLeft: "5px solid #d1b097", // Garis kiri coklat muda
       padding: "15px",
-      border: "1px solid #ddd",
-      borderRadius: "10px",
-      boxShadow: "0 2px 4px rgba(0, 0, 0, 0.05)",
+      borderRadius: "8px",
     },
-    details: {
-      marginTop: "10px",
+    pembahasan: {
+      marginTop: "15px",
     },
     summary: {
       fontWeight: "bold",
-      color: "#28a745",
+      color: "#6d4c41", // Coklat tua untuk summary
       cursor: "pointer",
     },
     detailsParagraph: {
-      margin: 0,
-      color: "#555",
+      marginTop: "10px",
+      color: "#444", // Teks pembahasan dengan warna netral
+      lineHeight: "1.6",
+    },
+    // Media Queries
+    "@media (max-width: 768px)": {
+      soalBox: {
+        flex: "1 1 100%", // If the screen size is small, each box will take 100% width
+      },
+      headerTitle: {
+        fontSize: "2.2rem", // Smaller font for mobile screens
+      },
+      headerSubtitle: {
+        fontSize: "1.1rem", // Smaller subtitle font for mobile screens
+      },
     },
   };
 
@@ -90,13 +138,18 @@ const Peluang = () => {
           </p>
         </section>
 
-        {/* Video Pembelajaran */}
-        <div style={{ textAlign: "center", marginBottom: "20px" }}>
-          <h2>Video Penjelasan Peluang</h2>
-          <video width="600" controls>
-            <source src="/videos/peluang.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
+        {/* Video */}
+        <div style={styles.videoContainer}>
+          <h2 style={styles.sectionTitle}>Video Penjelasan Peluang</h2>
+          <iframe
+            width="70%"
+            height="400"
+            src="https://www.youtube.com/embed/vvb4jfxnQzI"
+            title="Video Penjelasan Transformasi Geometri"
+            frameBorder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          />
         </div>
 
         {/* Konsep Peluang */}

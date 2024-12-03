@@ -3,86 +3,137 @@ import React from "react";
 const Trigonometri = () => {
   const styles = {
     container: {
-      maxWidth: "1200px",
-      margin: "20px auto",
-      padding: "20px",
-      background: "#fff",
-      borderRadius: "10px",
+      maxWidth: "90%", // Increase width to 90% of the screen, allowing more space
+      margin: "20px auto", // Center the content with some space around it
+      background: "#faf3e0", // Background coklat muda yang lembut
+      borderRadius: "12px",
       boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-      fontFamily: "Arial, sans-serif",
-      color: "#333",
-      lineHeight: "1.6",
+      overflow: "hidden",
+      fontFamily: "'Poppins', sans-serif",
+      color: "#333", // Teks gelap untuk kontras
     },
     header: {
-      background: "#0077b6",
-      color: "#fff",
+      background: "#d1b097", // Coklat muda untuk header
       textAlign: "center",
-      padding: "20px",
+      padding: "40px", // Increase padding for a more spacious header
     },
     headerTitle: {
       margin: 0,
-      fontSize: "2.5rem",
+      fontSize: "2.8rem", // Increase the font size of the header title
+      fontWeight: "bold",
+      color: "#ffffff",
     },
     headerSubtitle: {
       margin: "10px 0 0",
-      fontSize: "1.2rem",
+      fontSize: "1.3rem", // Slightly larger subtitle font size
+      color: "#e1d7b9", // Teks abu-abu muda agar lebih soft
     },
     content: {
-      padding: "20px",
+      padding: "30px", // Increase padding for more space around content
     },
     section: {
-      marginBottom: "30px",
+      marginBottom: "40px", // Increased bottom margin for sections
     },
     sectionTitle: {
-      fontSize: "2rem",
-      color: "#0077b6",
-      marginBottom: "20px",
+      fontSize: "2rem", // Increased font size for section titles
+      color: "#6d4c41", // Warna coklat tua untuk judul bagian
+      marginBottom: "20px", // More space below section titles
+      borderBottom: "2px solid #d1b097", // Garis bawah coklat muda
+      paddingBottom: "5px",
     },
     paragraph: {
-      fontSize: "1.1rem",
-      marginBottom: "20px",
-    },
-    list: {
-      listStyleType: "disc",
-      paddingLeft: "20px",
-      marginBottom: "20px",
-    },
-    listItem: {
-      margin: "10px 0",
-      fontSize: "1.1rem",
+      margin: "15px 0", // Increased margin for paragraphs
+      color: "#555", // Teks gelap dengan kontras tinggi
+      textAlign: "justify",
     },
     exampleBox: {
-      background: "#f0f8ff",
+      background: "#fff", // White background for each example box
       padding: "20px",
-      borderRadius: "10px",
-      boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
+      borderRadius: "12px",
+      boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
       marginBottom: "20px",
+      transition: "transform 0.3s ease, box-shadow 0.3s ease",
+      cursor: "pointer",
     },
-    exampleTitle: {
-      fontSize: "1.3rem",
-      fontWeight: "bold",
-      marginBottom: "10px",
+    exampleBoxHover: {
+      transform: "scale(1.02)",
+      boxShadow: "0 8px 16px rgba(0, 0, 0, 0.2)",
+    },
+    videoContainer: {
+      textAlign: "center",
+      marginBottom: "40px", // Increased bottom margin for video section
+      padding: "20px",
+      background: "#f5e6d3", // Coklat muda untuk latar belakang video
+      borderRadius: "12px",
     },
     formula: {
-      fontSize: "1.2rem",
-      fontFamily: "'Courier New', monospace",
-      color: "#333",
+      fontWeight: "bold",
+      fontSize: "1.1rem",
+      color: "#6d4c41",
     },
     table: {
       width: "100%",
-      marginTop: "20px",
       borderCollapse: "collapse",
+      marginTop: "20px",
     },
     tableHeader: {
-      background: "#00b4d8",
+      background: "#d1b097", // Coklat muda untuk header tabel
       color: "#fff",
       padding: "10px",
-      textAlign: "center",
+      border: "1px solid #d1b097",
     },
     tableCell: {
       padding: "10px",
+      border: "1px solid #d1b097",
       textAlign: "center",
-      border: "1px solid #ddd",
+    },
+    soalWrapper: {
+      display: "flex",
+      flexWrap: "wrap",
+      gap: "20px",
+      justifyContent: "center",
+    },
+    soalBox: {
+      flex: "1 1 calc(48% - 20px)", // Responsif, set lebar 48% dengan jarak antar item
+      background: "#ffffff", // Kotak soal dengan latar belakang putih
+      color: "#333", // Teks gelap
+      borderRadius: "12px",
+      padding: "20px",
+      boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+      transition: "transform 0.3s ease, box-shadow 0.3s ease",
+      cursor: "pointer",
+    },
+    soalBoxHover: {
+      transform: "scale(1.02)",
+      boxShadow: "0 8px 16px rgba(0, 0, 0, 0.2)",
+    },
+    jenis: {
+      color: "#6d4c41", // Coklat tua untuk judul soal
+      fontSize: "1.6rem", // Slightly larger font for the type of question
+      marginBottom: "10px",
+    },
+    deskripsi: {
+      fontSize: "1.1rem", // Larger font size for descriptions
+      marginBottom: "20px", // More margin below descriptions
+      textAlign: "justify",
+      color: "#6d4c41", // Coklat untuk deskripsi
+    },
+    detailsParagraph: {
+      marginTop: "10px",
+      color: "#444", // Teks pembahasan dengan warna netral
+      lineHeight: "1.6",
+    },
+    // Media Queries
+    "@media (max-width: 768px)": {
+      soalBox: {
+        flex: "1 1 100%", // If the screen size is small, each box will take 100% width
+      },
+      headerTitle: {
+        fontSize: "2.2rem", // Smaller font for mobile screens
+      },
+      headerSubtitle: {
+        fontSize: "1.1rem", // Smaller subtitle font for mobile screens
+      },
     },
   };
 
@@ -105,18 +156,15 @@ const Trigonometri = () => {
             Dengan perbandingan ini, kamu bisa dengan mudah menentukan panjang sisi segitiga meskipun hanya diketahui panjang salah satu sisi dan sudutnya saja.
           </p>
         </section>
+        
 
         {/* Jenis-Jenis Trigonometri */}
         <section style={styles.section}>
           <h2 style={styles.sectionTitle}>Jenis-Jenis Trigonometri</h2>
-          <p style={styles.paragraph}>
-            Perbandingan dasar trigonometri terdiri dari sinus, kosinus, dan tangen. Dari perbandingan tersebut, akan muncul perbandingan lain seperti kosekan, sekan, dan kotangen. 
-            Berikut adalah penjelasan lebih lanjut.
-          </p>
 
           <div style={styles.exampleBox}>
-            <h3 style={styles.exampleTitle}>Sinus</h3>
-            <p style={styles.paragraph}>
+            <h3 style={styles.jenis}>Sinus</h3>
+            <p style={styles.deskripsi}>
               Sinus atau bisa disingkat sin adalah perbandingan antara panjang sisi di depan sudut dan panjang sisi miring.
               Secara matematis, dirumuskan sebagai:
             </p>
@@ -124,8 +172,8 @@ const Trigonometri = () => {
           </div>
 
           <div style={styles.exampleBox}>
-            <h3 style={styles.exampleTitle}>Kosinus</h3>
-            <p style={styles.paragraph}>
+            <h3 style={styles.jenis}>Kosinus</h3>
+            <p style={styles.deskripsi}>
               Kosinus atau biasa disebut cos adalah perbandingan antara panjang sisi di samping sudut dan panjang sisi miring.
               Secara matematis, dirumuskan sebagai:
             </p>
@@ -133,134 +181,103 @@ const Trigonometri = () => {
           </div>
 
           <div style={styles.exampleBox}>
-            <h3 style={styles.exampleTitle}>Tangen</h3>
-            <p style={styles.paragraph}>
+            <h3 style={styles.jenis}>Tangen</h3>
+            <p style={styles.deskripsi}>
               Tangen atau biasa disebut tan adalah perbandingan antara panjang sisi di depan sudut dan panjang sisi di samping sudut.
               Secara matematis, dirumuskan sebagai:
             </p>
             <p style={styles.formula}>tan(θ) = sisi depan / sisi samping</p>
           </div>
-        </section>
 
-        {/* Perbandingan Lain */}
-        <section style={styles.section}>
-          <h2 style={styles.sectionTitle}>Perbandingan Lain</h2>
           <div style={styles.exampleBox}>
-            <h3 style={styles.exampleTitle}>Kosekan</h3>
-            <p style={styles.paragraph}>
-              Kosekan adalah perbandingan antara panjang sisi miring segitiga dan panjang sisi di depan sudut. Kosekan merupakan kebalikan dari sinus. 
-              Secara matematis, dirumuskan sebagai:
+            <h3 style={styles.jenis}>Kosekan</h3>
+            <p style={styles.deskripsi}>
+              Kosekan adalah kebalikan dari sinus. Secara matematis, dirumuskan sebagai:
             </p>
-            <p style={styles.formula}>csc(θ) = sisi miring / sisi depan</p>
+            <p style={styles.formula}>cosec(θ) = 1 / sin(θ)</p>
           </div>
 
           <div style={styles.exampleBox}>
-            <h3 style={styles.exampleTitle}>Sekan</h3>
-            <p style={styles.paragraph}>
-              Sekan adalah perbandingan antara panjang sisi miring segitiga dan panjang sisi di samping sudut. Sekan merupakan kebalikan dari kosinus. 
-              Secara matematis, dirumuskan sebagai:
+            <h3 style={styles.jenis}>Sekan</h3>
+            <p style={styles.deskripsi}>
+              Sekan adalah kebalikan dari kosinus. Secara matematis, dirumuskan sebagai:
             </p>
-            <p style={styles.formula}>sec(θ) =sisi miring / sisi samping</p>
+            <p style={styles.formula}>sec(θ) = 1 / cos(θ)</p>
           </div>
 
           <div style={styles.exampleBox}>
-            <h3 style={styles.exampleTitle}>Kotangen</h3>
-            <p style={styles.paragraph}>
-              Kotangen adalah perbandingan antara panjang sisi di samping sudut dan panjang sisi di depan sudut. Kotangen merupakan kebalikan dari tangen. 
-              Secara matematis, dirumuskan sebagai:
+            <h3 style={styles.jenis}>Kotonen</h3>
+            <p style={styles.deskripsi}>
+              Kotonen adalah kebalikan dari tangen. Secara matematis, dirumuskan sebagai:
             </p>
-            <p style={styles.formula}>cot(θ) = sisi samping / sisi depan</p>
+            <p style={styles.formula}>cot(θ) = 1 / tan(θ)</p>
           </div>
         </section>
 
-        {/* Sudut Trigonometri */}
+        {/* Video */}
+        <div style={styles.videoContainer}>
+          <h2 style={styles.sectionTitle}>Video Penjelasan Trigonometri</h2>
+          <iframe
+            width="70%"
+            height="400"
+            src="https://www.youtube.com/embed/vvb4jfxnQzI"
+            title="Video Penjelasan Transformasi Geometri"
+            frameBorder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          />
+        </div>
+
+        {/* Tabel Sudut Trigonometri */}
         <section style={styles.section}>
-          <h2 style={styles.sectionTitle}>Sudut Trigonometri</h2>
+          <h2 style={styles.sectionTitle}>Tabel Sudut Trigonometri</h2>
           <table style={styles.table}>
             <thead>
               <tr>
-                <th style={styles.tableHeader}>Identitas</th>
-                <th style={styles.tableHeader}>0°</th>
-                <th style={styles.tableHeader}>30°</th>
-                <th style={styles.tableHeader}>45°</th>
-                <th style={styles.tableHeader}>60°</th>
-                <th style={styles.tableHeader}>90°</th>
+                <th style={styles.tableHeader}>Sudut (°)</th>
+                <th style={styles.tableHeader}>Sinus</th>
+                <th style={styles.tableHeader}>Kosinus</th>
+                <th style={styles.tableHeader}>Tangen</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td style={styles.tableCell}>sin(θ)</td>
+                <td style={styles.tableCell}>0°</td>
                 <td style={styles.tableCell}>0</td>
-                <td style={styles.tableCell}>1/2</td>
-                <td style={styles.tableCell}>√2/2</td>
-                <td style={styles.tableCell}>√3/2</td>
                 <td style={styles.tableCell}>1</td>
-              </tr>
-              <tr>
-                <td style={styles.tableCell}>cos(θ)</td>
-                <td style={styles.tableCell}>1</td>
-                <td style={styles.tableCell}>√3/2</td>
-                <td style={styles.tableCell}>√2/2</td>
-                <td style={styles.tableCell}>1/2</td>
                 <td style={styles.tableCell}>0</td>
               </tr>
               <tr>
-                <td style={styles.tableCell}>tan(θ)</td>
-                <td style={styles.tableCell}>0</td>
+                <td style={styles.tableCell}>30°</td>
+                <td style={styles.tableCell}>1/2</td>
+                <td style={styles.tableCell}>√3/2</td>
                 <td style={styles.tableCell}>√3/3</td>
-                <td style={styles.tableCell}>1</td>
-                <td style={styles.tableCell}>√3</td>
-                <td style={styles.tableCell}>undefined</td>
               </tr>
+              <tr>
+                <td style={styles.tableCell}>45°</td>
+                <td style={styles.tableCell}>1/2√2</td>
+                <td style={styles.tableCell}>1/2√3</td>
+                <td style={styles.tableCell}>1</td>
+              </tr>
+              <tr>
+                <td style={styles.tableCell}>60°</td>
+                <td style={styles.tableCell}>1/2√3</td>
+                <td style={styles.tableCell}>1/2</td>
+                <td style={styles.tableCell}>√3</td>
+              </tr>
+              <tr>
+                <td style={styles.tableCell}>90°</td>
+                <td style={styles.tableCell}>1</td>
+                <td style={styles.tableCell}>1/2</td>
+                <td style={styles.tableCell}>0</td>
+              </tr>
+              
+              {/* Additional rows as needed */}
             </tbody>
           </table>
         </section>
 
-        {/* Video */}
-        <section style={styles.section}>
-          <h2 style={styles.sectionTitle}>Video Penjelasan</h2>
-          <p style={styles.paragraph}>Simak video berikut untuk memahami fungsi kuadrat:</p>
-          <div
-            style={{
-              position: "relative",
-              overflow: "hidden",
-              width: "100%",
-              paddingTop: "56.25%", // 16:9 Aspect Ratio
-              borderRadius: "10px",
-              boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
-            }}
-          >
-            <iframe
-              style={{
-                position: "absolute",
-                top: 0,
-                left: 0,
-                width: "100%",
-                height: "100%",
-                border: "none",
-              }}
-              src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-              title="Penjelasan Fungsi Kuadrat"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            ></iframe>
-          </div>
-        </section>
-
-        {/* Aplikasi Trigonometri */}
-        <section style={styles.section}>
-          <h2 style={styles.sectionTitle}>Aplikasi Trigonometri</h2>
-          <p style={styles.paragraph}>
-            Trigonometri memiliki berbagai aplikasi dalam kehidupan sehari-hari dan ilmu pengetahuan, antara lain:
-          </p>
-          <ul style={styles.list}>
-            <li style={styles.listItem}>Pengukuran jarak dan tinggi objek yang tidak dapat diukur langsung.</li>
-            <li style={styles.listItem}>Perancangan struktur bangunan dan rekayasa teknik.</li>
-            <li style={styles.listItem}>Analisis gerakan dalam fisika dan astronomi.</li>
-            <li style={styles.listItem}>Navigasi dan pemetaan geografi.</li>
-          </ul>
-          <main style={styles.content}></main>
-        {/* Contoh Soal */}
+         {/* Contoh Soal */}
         <section style={styles.section}>
           <h2 style={styles.sectionTitle}>Contoh Soal</h2>
           </section>
@@ -382,12 +399,12 @@ const Trigonometri = () => {
                 <br />
                 Jawaban: <strong>D</strong>
                 </p>
-                
-            </details>
-          </div>
-
-        </section>
+                </details>
+            </div>
+          
+    
       </main>
+      
     </div>
   );
 };

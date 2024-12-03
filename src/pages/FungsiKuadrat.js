@@ -3,69 +3,100 @@ import React from "react";
 const FungsiKuadrat = () => {
   const styles = {
     container: {
-      maxWidth: "1000px",  // Ubah lebar kontainer menjadi lebih besar
+      maxWidth: "90%",
       margin: "20px auto",
-      background: "#fff",
-      borderRadius: "10px",
+      background: "#faf3e0",
+      borderRadius: "12px",
       boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
       overflow: "hidden",
-      fontFamily: "Arial, sans-serif",
+      fontFamily: "'Poppins', sans-serif",
       color: "#333",
-      lineHeight: "1.6",
     },
     header: {
-      background: "#0077b6",
-      color: "#fff",
+      background: "#d1b097",
       textAlign: "center",
-      padding: "20px",
+      padding: "40px",
     },
     headerTitle: {
       margin: 0,
-      fontSize: "2rem",
+      fontSize: "2.8rem",
+      fontWeight: "bold",
+      color: "#ffffff",
     },
     headerSubtitle: {
       margin: "10px 0 0",
-      fontSize: "1rem",
+      fontSize: "1.3rem",
+      color: "#e1d7b9",
     },
     content: {
-      padding: "20px",
+      padding: "30px",
     },
     section: {
-      marginBottom: "20px",
+      marginBottom: "40px",
     },
     sectionTitle: {
-      fontSize: "1.5rem",
-      color: "#0077b6",
-      marginBottom: "10px",
+      fontSize: "2rem",
+      color: "#6d4c41",
+      marginBottom: "20px",
+      borderBottom: "2px solid #d1b097",
+      paddingBottom: "5px",
     },
     paragraph: {
-      margin: "10px 0",
+      margin: "15px 0",
+      color: "#555",
+      textAlign: "justify",
+    },
+    videoContainer: {
+      textAlign: "center",
+      marginBottom: "40px",
+      padding: "20px",
+      background: "#f5e6d3",
+      borderRadius: "12px",
+    },
+    exampleWrapper: {
+      background: "#ffffff", // Box color
+      padding: "20px",
+      borderRadius: "12px",
+      boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
     },
     exampleBox: {
-      background: "#f9f9f9",
+      marginBottom: "20px", // Space between questions
+    },
+    jenis: {
+      color: "#6d4c41",
+      fontSize: "1.6rem",
+      marginBottom: "10px",
+    },
+    deskripsi: {
+      fontSize: "1.1rem",
+      marginBottom: "20px",
+      textAlign: "justify",
+      color: "#6d4c41",
+    },
+    soalContainer: {
+      background: "#f5e6d3",
+      borderLeft: "5px solid #d1b097",
       padding: "15px",
-      border: "1px solid #ddd",
-      borderRadius: "10px",
-      boxShadow: "0 2px 4px rgba(0, 0, 0, 0.05)",
+      borderRadius: "8px",
     },
-    list: {
-      listStyleType: "disc",
-      paddingLeft: "20px",
-    },
-    listItem: {
-      margin: "5px 0",
+    pembahasan: {
+      marginTop: "15px",
     },
     summary: {
       fontWeight: "bold",
-      color: "#0077b6",
+      color: "#6d4c41",
       cursor: "pointer",
     },
-    details: {
-      marginTop: "10px",
-    },
     detailsParagraph: {
-      margin: 0,
-      color: "#555",
+      marginTop: "10px",
+      color: "#444",
+      lineHeight: "1.6",
+    },
+    // Media Queries
+    "@media (max-width: 768px)": {
+      exampleWrapper: {
+        padding: "10px", // Adjust padding for mobile view
+      },
     },
   };
 
@@ -135,114 +166,58 @@ const FungsiKuadrat = () => {
         </section>
 
         {/* Video */}
-        <section style={styles.section}>
-          <h2 style={styles.sectionTitle}>Video Penjelasan</h2>
-          <p style={styles.paragraph}>Simak video berikut untuk memahami fungsi kuadrat:</p>
-          <div
-            style={{
-              position: "relative",
-              overflow: "hidden",
-              width: "100%",
-              paddingTop: "56.25%", // 16:9 Aspect Ratio
-              borderRadius: "10px",
-              boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
-            }}
-          >
-            <iframe
-              style={{
-                position: "absolute",
-                top: 0,
-                left: 0,
-                width: "100%",
-                height: "100%",
-                border: "none",
-              }}
-              src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-              title="Penjelasan Fungsi Kuadrat"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            ></iframe>
-          </div>
-        </section>
+        <div style={styles.videoContainer}>
+          <h2 style={styles.sectionTitle}>Video Penjelasan Fungsi Kuadrat</h2>
+          <iframe
+            width="70%"
+            height="400"
+            src="https://www.youtube.com/embed/vvb4jfxnQzI"
+            title="Video Penjelasan Transformasi Geometri"
+            frameBorder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          />
+        </div>
 
         {/* Contoh Soal */}
         <section style={styles.section}>
           <h2 style={styles.sectionTitle}>Contoh Soal</h2>
+          <div style={styles.exampleWrapper}>
+            {/* Soal 1 */}
+            <div style={styles.exampleBox}>
+              <p style={styles.paragraph}>
+                <strong>Soal 1:</strong> Diketahui grafik <em>y = 4x² + 2x − 12</em>. 
+                Maka, tentukanlah titik potong grafik pada sumbu x!
+              </p>
+              <details style={styles.details}>
+                <summary style={styles.summary}>Lihat Pembahasan</summary>
+                <p style={styles.detailsParagraph}>
+                  Grafik memotong sumbu x jika y = 0:
+                  <br />
+                  <strong>4x² + 2x − 12 = 0</strong> → <strong>(2x − 3)(2x + 4) = 0</strong>
+                  <br />
+                  Titik potong: <strong>(3/2, 0)</strong> dan <strong>(-2, 0)</strong>.
+                </p>
+              </details>
+            </div>
 
-          {/* Soal 1 */}
-          <div style={styles.exampleBox}>
-            <p style={styles.paragraph}>
-              <strong>Soal 1:</strong> Diketahui grafik <em>y = 4x² + 2x − 12</em>. 
-              Maka, tentukanlah titik potong grafik pada sumbu x!
-            </p>
-            <details style={styles.details}>
-              <summary style={styles.summary}>Lihat Pembahasan</summary>
-              <p style={styles.detailsParagraph}>
-                Grafik memotong sumbu x jika y = 0:
-                <br />
-                <strong>4x² + 2x − 12 = 0</strong> → <strong>(2x − 3)(2x + 4) = 0</strong>
-                <br />
-                Titik potong: <strong>(3/2, 0)</strong> dan <strong>(-2, 0)</strong>.
+            {/* Soal 2 */}
+            <div style={styles.exampleBox}>
+              <p style={styles.paragraph}>
+                <strong>Soal 2:</strong> Diketahui grafik <em>y = 2x² + x − 6</em>. 
+                Tentukanlah titik potong grafik pada sumbu y!
               </p>
-            </details>
-          </div>
-
-          {/* Soal 2 */}
-          <div style={styles.exampleBox}>
-            <p style={styles.paragraph}>
-              <strong>Soal 2:</strong> Diketahui grafik <em>y = 2x² + x − 6</em>. 
-              Tentukanlah titik potong grafik pada sumbu y!
-            </p>
-            <details style={styles.details}>
-              <summary style={styles.summary}>Lihat Pembahasan</summary>
-              <p style={styles.detailsParagraph}>
-                Titik potong sumbu y terjadi ketika x = 0:
-                <br />
-                <strong>y = 2(0)² + 0 − 6</strong> → <strong>y = -6</strong>
-                <br />
-                Titik potong: <strong>(0, -6)</strong>
-              </p>
-            </details>
-            {/* Soal 3 */}
-          <div style={styles.exampleBox}>
-            <p style={styles.paragraph}>
-              <strong>Soal 3:</strong> Pabrik tekstil ingin memproduksi <em>x</em> 
-              potong celana. Biaya produksi dijabarkan dalam fungsi 
-              <em>B(x) = 3x² − 30x + 175</em>. Hitung biaya minimum!
-            </p>
-            <details style={styles.details}>
-              <summary style={styles.summary}>Lihat Pembahasan</summary>
-              <p style={styles.detailsParagraph}>
-                Gunakan rumus <strong>x = -b / 2a</strong>:
-                <br />
-                <strong>x = -(-30) / (2 × 3) = 5</strong>
-                <br />
-                Substitusi ke fungsi: <strong>B(5) = 3(5²) − 30(5) + 175 = 100</strong>
-                <br />
-                Biaya minimum: <strong>100 (ratusan ribu rupiah)</strong>.
-              </p>
-            </details>
-          </div>
-
-          {/* Soal 4 */}
-          <div style={styles.exampleBox}>
-            <p style={styles.paragraph}>
-              <strong>Soal 4:</strong> Pada fungsi <em>f(x) = ax² − 8x + c</em> 
-              dengan titik puncak (2, 3). Tentukan nilai <em>f(3)</em>!
-            </p>
-            <details style={styles.details}>
-              <summary style={styles.summary}>Lihat Pembahasan</summary>
-              <p style={styles.detailsParagraph}>
-                Diketahui <em>xp = -b / 2a</em>, sehingga <strong>a = 2</strong>.
-                <br />
-                Substitusi titik puncak: <strong>3 = 2(2²) − 8(2) + c</strong> → <strong>c = 11</strong>.
-                <br />
-                Hitung nilai <strong>f(3) = 2(3²) − 8(3) + 11 = 1</strong>.
-                <br />
-                Jadi, nilai <strong>f(3) = 1</strong>.
-              </p>
-            </details>
-          </div>
+              <details style={styles.details}>
+                <summary style={styles.summary}>Lihat Pembahasan</summary>
+                <p style={styles.detailsParagraph}>
+                  Titik potong sumbu y terjadi ketika x = 0:
+                  <br />
+                  <strong>y = 2(0)² + 0 − 6 = -6</strong>
+                  <br />
+                  Jadi, titik potongnya adalah <strong>(0, -6)</strong>.
+                </p>
+              </details>
+            </div>
           </div>
         </section>
       </main>
