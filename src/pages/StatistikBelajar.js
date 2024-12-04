@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import { useScore } from "../components/ScoreContext";
 
 const StatistikBelajar = () => {
   const { score } = useScore();
+  const location = useLocation(); // Mendapatkan state dari navigasi
   const [message, setMessage] = useState("");
   const [animate, setAnimate] = useState(false);
   const [incorrectAnswers, setIncorrectAnswers] = useState([]);
@@ -21,20 +23,15 @@ const StatistikBelajar = () => {
     setMessage(getMotivationalMessage(score));
     setAnimate(true);
 
+    // Ambil jawaban salah dari state navigasi jika tersedia
+    if (location.state && location.state.wrongAnswers) {
+      setIncorrectAnswers(location.state.wrongAnswers);
+    }
+
     // Reset animasi setelah selesai
     const timer = setTimeout(() => setAnimate(false), 1000);
     return () => clearTimeout(timer);
-  }, [score]);
-
-  const showIncorrectAnswers = () => {
-    // Contoh data jawaban salah
-    const dummyIncorrectAnswers = [
-      "Pertanyaan 1: Jawaban Anda salah. Jawaban benar adalah X.",
-      "Pertanyaan 3: Jawaban Anda salah. Jawaban benar adalah Y.",
-      "Pertanyaan 5: Jawaban Anda salah. Jawaban benar adalah Z.",
-    ];
-    setIncorrectAnswers(dummyIncorrectAnswers);
-  };
+  }, [score, location.state]);
 
   return (
     <div
@@ -49,17 +46,16 @@ const StatistikBelajar = () => {
         fontFamily: "'Poppins', sans-serif",
       }}
     >
-      <h2 style={{ color: "#1565c0", fontSize: "26px", marginBottom: "20px", fontWeight: "600" }}> {/* Warna teks biru lebih gelap */}
+      <h2 style={{ color: "#1565c0", fontSize: "26px", marginBottom: "20px", fontWeight: "600" }}>
         Statistik Belajar
       </h2>
-      <p style={{ fontSize: "20px", marginBottom: "15px", color: "#1e88e5", fontWeight: "500" }}> {/* Warna teks biru */}
+      <p style={{ fontSize: "20px", marginBottom: "15px", color: "#1e88e5", fontWeight: "500" }}>
         Skor kuis terakhir Anda: <strong>{score}</strong>
       </p>
       <p
         style={{
           fontSize: "18px",
           fontStyle: "italic",
-          color: "#0d47a1", // Warna teks biru tua
           transition: "transform 0.3s, opacity 0.3s, color 0.3s",
           transform: animate ? "scale(1.1)" : "scale(1)",
           opacity: animate ? 1 : 0.8,
@@ -68,23 +64,6 @@ const StatistikBelajar = () => {
       >
         {message}
       </p>
-      <div
-        style={{
-          marginTop: "20px",
-          padding: "10px 20px",
-          backgroundColor: "#42a5f5",
-          color: "#ffffff",
-          borderRadius: "5px",
-          fontWeight: "500",
-          cursor: "pointer",
-          transition: "background-color 0.3s",
-        }}
-        onMouseOver={(e) => (e.target.style.backgroundColor = "#1e88e5")}
-        onMouseOut={(e) => (e.target.style.backgroundColor = "#42a5f5")}
-        onClick={showIncorrectAnswers}
-      >
-        Teruskan Belajarmu!
-      </div>
       {incorrectAnswers.length > 0 && (
         <div
           style={{
@@ -100,7 +79,13 @@ const StatistikBelajar = () => {
           <ul style={{ color: "#d84315", fontSize: "16px" }}>
             {incorrectAnswers.map((answer, index) => (
               <li key={index} style={{ marginBottom: "8px" }}>
-                {answer}
+                <strong>Pertanyaan:</strong> {answer.question}
+                <br />
+                <strong>Jawaban Anda:</strong> {answer.userAnswer}
+                <br />
+                <strong>Jawaban Benar:</strong> {answer.correctAnswer}
+                <br />
+                <strong>Penjelasan:</strong> {answer.explanation}
               </li>
             ))}
           </ul>

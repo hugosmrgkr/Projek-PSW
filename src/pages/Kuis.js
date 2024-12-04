@@ -134,13 +134,26 @@ const Kuis = () => {
   const [answered, setAnswered] = useState(false);
   const [selectedAnswer, setSelectedAnswer] = useState("");
   const [quizStarted, setQuizStarted] = useState(false);
+  const [wrongAnswers, setWrongAnswers] = useState([]); // Menyimpan jawaban salah
   const navigate = useNavigate();
 
   const handleAnswer = (answer, correctAnswer) => {
     setSelectedAnswer(answer);
+
     if (answer === correctAnswer) {
       setLocalScore((prevScore) => prevScore + 10);
+    } else {
+      setWrongAnswers((prev) => [
+        ...prev,
+        {
+          question: questions[currentQuestion].text,
+          userAnswer: answer,
+          correctAnswer: correctAnswer,
+          explanation: questions[currentQuestion].explanation,
+        },
+      ]);
     }
+
     setAnswered(true);
   };
 
@@ -152,7 +165,7 @@ const Kuis = () => {
 
   const finishQuiz = () => {
     updateGlobalScore(localScore);
-    navigate("/statistik-belajar"); 
+    navigate("/statistik-belajar", { state: { wrongAnswers } });
   };
 
   const calculateAverage = () => {

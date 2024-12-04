@@ -3,8 +3,8 @@ import React from "react";
 const Peluang = () => {
   const styles = {
     container: {
-      maxWidth: "90%", // Increase width to 90% of the screen, allowing more space
-      margin: "20px auto", // Center the content with some space around it
+      maxWidth: "90%",
+      margin: "20px auto",
       background: "#faf3e0", // Background coklat muda yang lembut
       borderRadius: "12px",
       boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
@@ -15,42 +15,42 @@ const Peluang = () => {
     header: {
       background: "#d1b097", // Coklat muda untuk header
       textAlign: "center",
-      padding: "40px", // Increase padding for a more spacious header
+      padding: "40px",
     },
     headerTitle: {
       margin: 0,
-      fontSize: "2.8rem", // Increase the font size of the header title
+      fontSize: "2.8rem",
       fontWeight: "bold",
       color: "#ffffff",
     },
     headerSubtitle: {
       margin: "10px 0 0",
-      fontSize: "1.3rem", // Slightly larger subtitle font size
+      fontSize: "1.3rem",
       color: "#e1d7b9", // Teks abu-abu muda agar lebih soft
     },
     content: {
-      padding: "30px", // Increase padding for more space around content
+      padding: "30px",
     },
     section: {
-      marginBottom: "40px", // Increased bottom margin for sections
+      marginBottom: "40px",
     },
     sectionTitle: {
-      fontSize: "2rem", // Increased font size for section titles
+      fontSize: "2rem",
       color: "#6d4c41", // Warna coklat tua untuk judul bagian
-      marginBottom: "20px", // More space below section titles
+      marginBottom: "20px",
       borderBottom: "2px solid #d1b097", // Garis bawah coklat muda
       paddingBottom: "5px",
     },
     paragraph: {
-      margin: "15px 0", // Increased margin for paragraphs
-      color: "#555", // Teks gelap dengan kontras tinggi
+      margin: "15px 0",
+      color: "#555",
       textAlign: "justify",
     },
     videoContainer: {
       textAlign: "center",
-      marginBottom: "40px", // Increased bottom margin for video section
+      marginBottom: "40px",
       padding: "20px",
-      background: "#f5e6d3", // Coklat muda untuk latar belakang video
+      background: "#f5e6d3",
       borderRadius: "12px",
     },
     soalWrapper: {
@@ -75,12 +75,12 @@ const Peluang = () => {
     },
     jenis: {
       color: "#6d4c41", // Coklat tua untuk judul soal
-      fontSize: "1.6rem", // Slightly larger font for the type of question
+      fontSize: "1.6rem",
       marginBottom: "10px",
     },
     deskripsi: {
-      fontSize: "1.1rem", // Larger font size for descriptions
-      marginBottom: "20px", // More margin below descriptions
+      fontSize: "1.1rem",
+      marginBottom: "20px",
       textAlign: "justify",
       color: "#6d4c41", // Coklat untuk deskripsi
     },
@@ -106,13 +106,13 @@ const Peluang = () => {
     // Media Queries
     "@media (max-width: 768px)": {
       soalBox: {
-        flex: "1 1 100%", // If the screen size is small, each box will take 100% width
+        flex: "1 1 100%", // Jika ukuran layarnya kecil, setiap kotak akan berukuran lebar 100%.
       },
       headerTitle: {
-        fontSize: "2.2rem", // Smaller font for mobile screens
+        fontSize: "2.2rem", 
       },
       headerSubtitle: {
-        fontSize: "1.1rem", // Smaller subtitle font for mobile screens
+        fontSize: "1.1rem", 
       },
     },
   };
@@ -121,9 +121,7 @@ const Peluang = () => {
     <div style={styles.container}>
       <header style={styles.header}>
         <h1 style={styles.headerTitle}>Peluang</h1>
-        <p style={styles.headerSubtitle}>
-          Pelajari konsep, rumus, dan contoh soal peluang secara mendalam.
-        </p>
+        <p style={styles.headerSubtitle}>Pelajari konsep, rumus, dan contoh soal peluang secara mendalam.</p>
       </header>
 
       <main style={styles.content}>
@@ -131,10 +129,9 @@ const Peluang = () => {
         <section style={styles.section}>
           <h2 style={styles.sectionTitle}>Pengertian Peluang</h2>
           <p style={styles.paragraph}>
-            Peluang adalah seberapa besar kemungkinan suatu kejadian terjadi
-            dibandingkan dengan seluruh kemungkinan kejadian yang ada. Konsep
-            ini digunakan dalam berbagai aspek kehidupan, mulai dari permainan
-            hingga investasi.
+            Peluang adalah seberapa besar kemungkinan suatu kejadian terjadi dibandingkan dengan seluruh
+            kemungkinan kejadian yang ada. Konsep ini digunakan dalam berbagai aspek kehidupan, mulai dari
+            permainan hingga investasi.
           </p>
         </section>
 
@@ -160,8 +157,8 @@ const Peluang = () => {
             <li style={styles.listItem}>
               <strong>Ruang Sampel</strong>
               <p style={styles.paragraph}>
-                Ruang sampel adalah kumpulan semua kemungkinan hasil dari suatu
-                percobaan. Contohnya, jika melempar dadu, ruang sampelnya adalah
+                Ruang sampel adalah kumpulan semua kemungkinan hasil dari suatu percobaan. Contohnya, jika
+                melempar dadu, ruang sampelnya adalah
                 {` {1, 2, 3, 4, 5, 6}`}.
               </p>
             </li>
@@ -170,9 +167,8 @@ const Peluang = () => {
             <li style={styles.listItem}>
               <strong>Titik Sampel</strong>
               <p style={styles.paragraph}>
-                Titik sampel adalah elemen terkecil dalam ruang sampel yang
-                tidak dapat dibagi lagi, seperti "kepala" dan "ekor" pada
-                pelemparan koin.
+                Titik sampel adalah elemen terkecil dalam ruang sampel yang tidak dapat dibagi lagi, seperti
+                "kepala" dan "ekor" pada pelemparan koin.
               </p>
             </li>
 
@@ -180,8 +176,8 @@ const Peluang = () => {
             <li style={styles.listItem}>
               <strong>Kejadian</strong>
               <p style={styles.paragraph}>
-                Kejadian adalah hasil tertentu dari percobaan, seperti
-                "mendapatkan angka ganjil" saat melempar dadu.
+                Kejadian adalah hasil tertentu dari percobaan, seperti "mendapatkan angka ganjil" saat
+                melempar dadu.
               </p>
             </li>
           </ol>
@@ -210,24 +206,20 @@ const Peluang = () => {
           <h2 style={styles.sectionTitle}>Contoh Soal</h2>
           <ol style={styles.list}>
             <li style={styles.listItem}>
-              <strong>Contoh 1:</strong> Dalam sebuah kotak terdapat 5 bola merah dan
-              3 bola biru. Tentukan peluang mengambil bola merah.
+              <strong>Contoh 1:</strong> Dalam sebuah kotak terdapat 5 bola merah dan 3 bola biru. Tentukan
+              peluang mengambil bola merah.
               <details style={styles.details}>
                 <summary style={styles.summary}>Lihat Pembahasan</summary>
-                <p style={styles.detailsParagraph}>
-                  P = 5 / (5 + 3) = 5 / 8 = 0.625 atau 62.5%
-                </p>
+                <p style={styles.detailsParagraph}>P = 5 / (5 + 3) = 5 / 8 = 0.625 atau 62.5%</p>
               </details>
             </li>
 
             <li style={styles.listItem}>
-              <strong>Contoh 2:</strong> Dalam kelas terdapat 15 siswa, 6 di antaranya
-              perempuan. Peluang terpilih siswa laki-laki?
+              <strong>Contoh 2:</strong> Dalam kelas terdapat 15 siswa, 6 di antaranya perempuan. Peluang
+              terpilih siswa laki-laki?
               <details style={styles.details}>
                 <summary style={styles.summary}>Lihat Pembahasan</summary>
-                <p style={styles.detailsParagraph}>
-                  P = 9 / 15 = 0.6 atau 60%
-                </p>
+                <p style={styles.detailsParagraph}>P = 9 / 15 = 0.6 atau 60%</p>
               </details>
             </li>
           </ol>
