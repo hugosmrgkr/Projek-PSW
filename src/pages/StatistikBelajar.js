@@ -8,6 +8,7 @@ const StatistikBelajar = () => {
   const [message, setMessage] = useState("");
   const [animate, setAnimate] = useState(false);
   const [incorrectAnswers, setIncorrectAnswers] = useState([]);
+  const [isQuizFinished, setIsQuizFinished] = useState(false);
 
   useEffect(() => {
     const getMotivationalMessage = (score) => {
@@ -20,17 +21,21 @@ const StatistikBelajar = () => {
       }
     };
 
-    setMessage(getMotivationalMessage(score));
-    setAnimate(true);
-
-    // Ambil jawaban salah dari state navigasi jika tersedia
-    if (location.state && location.state.wrongAnswers) {
-      setIncorrectAnswers(location.state.wrongAnswers);
+    // Ambil status kuis dan jawaban salah dari state navigasi jika tersedia
+    if (location.state) {
+      setIsQuizFinished(location.state.isQuizFinished || false); // Default: false
+      if (location.state.wrongAnswers) {
+        setIncorrectAnswers(location.state.wrongAnswers);
+      }
     }
 
-    // Reset animasi setelah selesai
-    const timer = setTimeout(() => setAnimate(false), 1000);
-    return () => clearTimeout(timer);
+    // Setel pesan motivasi hanya jika kuis selesai
+    if (location.state?.isQuizFinished) {
+      setMessage(getMotivationalMessage(score));
+      setAnimate(true);
+      const timer = setTimeout(() => setAnimate(false), 1000); // Reset animasi setelah selesai
+      return () => clearTimeout(timer);
+    }
   }, [score, location.state]);
 
   return (
@@ -52,18 +57,22 @@ const StatistikBelajar = () => {
       <p style={{ fontSize: "20px", marginBottom: "15px", color: "#1e88e5", fontWeight: "500" }}>
         Skor kuis terakhir Anda: <strong>{score}</strong>
       </p>
-      <p
-        style={{
-          fontSize: "18px",
-          fontStyle: "italic",
-          transition: "transform 0.3s, opacity 0.3s, color 0.3s",
-          transform: animate ? "scale(1.1)" : "scale(1)",
-          opacity: animate ? 1 : 0.8,
-          color: animate ? "#42a5f5" : "#0d47a1", // Animasi perubahan warna
-        }}
-      >
-        {message}
-      </p>
+
+      {isQuizFinished && (
+        <p
+          style={{
+            fontSize: "18px",
+            fontStyle: "italic",
+            transition: "transform 0.3s, opacity 0.3s, color 0.3s",
+            transform: animate ? "scale(1.1)" : "scale(1)",
+            opacity: animate ? 1 : 0.8,
+            color: animate ? "#42a5f5" : "#0d47a1", // Animasi perubahan warna
+          }}
+        >
+          {message}
+        </p>
+      )}
+
       {incorrectAnswers.length > 0 && (
         <div
           style={{

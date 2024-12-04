@@ -165,7 +165,7 @@ const Kuis = () => {
 
   const finishQuiz = () => {
     updateGlobalScore(localScore);
-    navigate("/statistik-belajar", { state: { wrongAnswers } });
+    navigate("/statistik-belajar", { state: {isQuizFinished: true, wrongAnswers } });
   };
 
   const calculateAverage = () => {
