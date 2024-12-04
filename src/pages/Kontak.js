@@ -9,6 +9,13 @@ const Kontak = () => {
     message: "",
   });
   const [showPreview, setShowPreview] = useState(false);
+  const [previewData, setPreviewData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    website: "",
+    message: "",
+  });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -17,9 +24,15 @@ const Kontak = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert("Pesan Anda berhasil dikirim!");
+
+    // Set preview data to current form data
+    setPreviewData(formData);
+
+    // Reset form after submission
     setFormData({ name: "", email: "", phone: "", website: "", message: "" });
-    setShowPreview(false);
+
+    // Tampilkan preview setelah kirim
+    setShowPreview(true);
   };
 
   const togglePreview = () => {
@@ -130,29 +143,15 @@ const Kontak = () => {
             border-radius: 8px;
           }
 
-          .preview-item {
-            margin-bottom: 12px;
-            font-size: 15px;
-            color: #333;
-          }
-
-          .preview-item strong {
-            display: inline-block;
-            width: 130px;
-            font-weight: bold;
-            color: #007bff;
-          }
-
-          .preview-item span {
-            display: block;
-            font-size: 14px;
-            color: #555;
-          }
-
-          .preview-container .preview-item + .preview-item {
-            border-top: 1px solid #e1e1e1;
-            padding-top: 12px;
-            margin-top: 12px;
+          @keyframes fadeInScale {
+            0% {
+              transform: scale(0.8);
+              opacity: 0;
+            }
+            100% {
+              transform: scale(1);
+              opacity: 1;
+            }
           }
         `}
       </style>
@@ -244,23 +243,23 @@ const Kontak = () => {
         <div className="preview-header">Preview Pesan Anda</div>
         <div className="preview-item">
           <strong>Nama:</strong>
-          <span>{formData.name}</span>
+          <span>{previewData.name}</span>
         </div>
         <div className="preview-item">
           <strong>Email:</strong>
-          <span>{formData.email}</span>
+          <span>{previewData.email}</span>
         </div>
         <div className="preview-item">
           <strong>Nomor Kontak:</strong>
-          <span>{formData.phone}</span>
+          <span>{previewData.phone}</span>
         </div>
         <div className="preview-item">
           <strong>Nama Materi:</strong>
-          <span>{formData.website}</span>
+          <span>{previewData.website}</span>
         </div>
         <div className="preview-item">
           <strong>Pesan:</strong>
-          <span>{formData.message}</span>
+          <span>{previewData.message}</span>
         </div>
       </div>
     </div>
